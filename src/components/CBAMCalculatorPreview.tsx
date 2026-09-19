@@ -1,0 +1,3 @@
+'use client';
+import {useState} from 'react';
+export default function CBAMCalculatorPreview(){const [cost,setCost]=useState<number|null>(null);return <section className="mx-auto max-w-6xl px-6 py-16"><div className="rounded-xl border p-8"><h2 className="text-3xl font-bold">CBAM Cost Calculator</h2><p className="mt-3 text-gray-600">Estimate potential CBAM costs using quantity, emissions and carbon price.</p><button onClick={()=>setCost(0)} className="mt-6 rounded-lg bg-blue-600 px-5 py-3 text-white">Calculate</button>{cost!==null&&<p className="mt-5 font-bold">Estimated CBAM Cost: {cost.toFixed(2)}</p>}</div></section>}
