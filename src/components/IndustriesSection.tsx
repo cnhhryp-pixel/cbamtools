@@ -1,0 +1,2 @@
+const industries=[['Steel','/cbam-steel-products'],['Aluminium','/cbam-aluminium-products'],['Cement','/cbam-cement-products'],['Fertilizer','/cbam-fertilizer-products']];
+export default function IndustriesSection(){return <section className="mx-auto max-w-6xl px-6 py-16"><h2 className="text-3xl font-bold text-center">CBAM Industries</h2><div className="mt-8 grid gap-5 md:grid-cols-4">{industries.map(([name,link])=><a key={name} href={link} className="rounded-xl border p-6 text-center">{name}</a>)}</div></section>}
