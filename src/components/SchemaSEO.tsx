@@ -1,0 +1,1 @@
+export default function SchemaSEO(){return <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Organization","name":"CBAMtools","description":"CBAM calculation and assessment tools for businesses preparing for EU CBAM requirements."})}}/>}
