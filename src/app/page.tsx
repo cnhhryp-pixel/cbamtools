@@ -4,6 +4,7 @@ import TrustSection from "@/components/TrustSection";
 import IndustriesSection from "@/components/IndustriesSection";
 import PopularResources from "@/components/PopularResources";
 import ProfessionalReportCTA from "@/components/ProfessionalReportCTA";
+import HomeFAQ from "@/components/HomeFAQ";
 import CBAMCTA from "@/components/CBAMCTA";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <PopularResources />
       <ProfessionalReportCTA />
       <TrustSection />
+      <HomeFAQ />
       <CBAMCTA />
     </main>
   );
