@@ -1,0 +1,3 @@
+export const metadata={title:'About CBAMtools - CBAM Compliance Platform'};
+
+export default function AboutPage(){return <main className="mx-auto max-w-4xl px-6 py-20"><h1 className="text-4xl font-bold">About CBAMtools</h1><p className="mt-6 text-gray-700">CBAMtools provides online tools and resources to help businesses understand CBAM requirements, estimate carbon costs and prepare assessment reports.</p><h2 className="mt-10 text-2xl font-bold">Our Focus</h2><ul className="mt-4 list-disc pl-6"><li>CBAM calculations</li><li>HS code checking</li><li>Compliance resources</li><li>Assessment reports</li></ul></main>}
