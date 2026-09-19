@@ -1,0 +1,2 @@
+const faqs=[{q:"What is CBAM?",a:"CBAM is the EU Carbon Border Adjustment Mechanism."},{q:"Who needs to prepare?",a:"Importers and businesses handling covered products should review CBAM requirements."},{q:"Can I estimate CBAM costs?",a:"Use CBAMtools calculators to estimate potential carbon costs."}];
+export default function FAQSection(){return <section className="mt-12"><h2 className="text-3xl font-bold">Frequently Asked Questions</h2>{faqs.map(f=><div key={f.q} className="mt-4"><h3 className="font-semibold">{f.q}</h3><p>{f.a}</p></div>)}</section>}
