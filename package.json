@@ -1,11 +1,14 @@
 {
   "name": "cbamtools",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
+  },
+  "engines": {
+    "node": ">=22"
   },
   "dependencies": {
     "next": "15.5.2",
