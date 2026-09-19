@@ -1,15 +1,1 @@
-export default function Footer() {
-  return (
-    <footer className="border-t bg-white">
-      <div className="mx-auto max-w-6xl px-6 py-8 text-sm text-gray-600">
-        <p>© {new Date().getFullYear()} CBAMtools.com</p>
-        <p className="mt-2">Free CBAM calculators and compliance tools for importers and exporters.</p>
-        <div className="mt-4 flex gap-5">
-          <a href="/contact">Contact</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/disclaimer">Disclaimer</a>
-        </div>
-      </div>
-    </footer>
-  );
-}
+export default function Footer(){return <footer className="border-t mt-16 py-10"><div className="mx-auto max-w-6xl px-6 grid gap-8 md:grid-cols-3"><div><h3 className="font-bold">CBAMtools</h3><p className="mt-2 text-gray-600">CBAM calculator and compliance tools for businesses.</p></div><div><h3 className="font-bold">Resources</h3><a href="/cbam-guide" className="block mt-2">CBAM Guide</a><a href="/blog" className="block mt-2">Blog</a><a href="/cbam-report-template" className="block mt-2">Report Template</a></div><div><h3 className="font-bold">Company</h3><a href="/about" className="block mt-2">About</a><a href="/contact" className="block mt-2">Contact</a><a href="/privacy" className="block mt-2">Privacy</a><a href="/terms" className="block mt-2">Terms</a></div></div></footer>}
