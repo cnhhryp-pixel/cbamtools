@@ -1,0 +1,14 @@
+[
+  {
+    "hsCode": "720810",
+    "sector": "Iron and Steel",
+    "product": "Steel products",
+    "cbam": true
+  },
+  {
+    "hsCode": "760110",
+    "sector": "Aluminium",
+    "product": "Unwrought aluminium",
+    "cbam": true
+  }
+]
