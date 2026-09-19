@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "pages:build": "opennextjs-cloudflare build"
+    "pages:build": "next-on-pages"
   },
   "dependencies": {
     "next": "16.3.5",
@@ -14,7 +14,7 @@
     "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "latest",
+    "@cloudflare/next-on-pages": "latest",
     "typescript": "latest",
     "tailwindcss": "latest",
     "@types/node": "latest",
