@@ -1,0 +1,2 @@
+const resources=[['CBAM Guide','/cbam-guide'],['CBAM Calculator Guide','/cbam-calculator-guide'],['CBAM Report Template','/cbam-report-template'],['CBAM Compliance Checklist','/cbam-compliance-checklist']];
+export default function PopularResources(){return <section className="mx-auto max-w-6xl px-6 py-16"><h2 className="text-3xl font-bold text-center">Popular CBAM Resources</h2><div className="mt-8 grid gap-5 md:grid-cols-4">{resources.map(([name,link])=><a key={name} href={link} className="rounded-xl border p-6 text-center hover:shadow">{name}</a>)}</div></section>}
