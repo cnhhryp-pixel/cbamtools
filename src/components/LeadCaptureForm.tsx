@@ -1,0 +1,3 @@
+'use client';
+import {useState} from 'react';
+export default function LeadCaptureForm(){const [email,setEmail]=useState('');return <section className="mx-auto max-w-5xl px-6 py-12"><div className="rounded-xl border p-8"><h2 className="text-2xl font-bold">Get Your CBAM Report</h2><p className="mt-3 text-gray-600">Enter your email to receive your professional CBAM report information.</p><div className="mt-5 flex gap-3"><input value={email} onChange={e=>setEmail(e.target.value)} placeholder="Business email" className="rounded-lg border px-4 py-3"/><button className="rounded-lg bg-blue-600 px-5 py-3 text-white">Continue</button></div></div></section>}
