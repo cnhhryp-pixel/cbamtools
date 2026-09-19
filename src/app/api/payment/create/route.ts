@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 export async function POST() {
   return Response.json({
     message: "PayPal payment creation endpoint ready",
