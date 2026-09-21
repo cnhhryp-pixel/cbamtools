@@ -8,16 +8,5 @@ import HomeFAQ from "../components/HomeFAQ";
 import CBAMCTA from "../components/CBAMCTA";
 
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-white text-gray-900">
-      <HomeHero />
-      <ToolCards />
-      <IndustriesSection />
-      <PopularResources />
-      <ProfessionalReportCTA />
-      <TrustSection />
-      <HomeFAQ />
-      <CBAMCTA />
-    </main>
-  );
+  return <main><HomeHero/><ToolCards/><IndustriesSection/><PopularResources/><ProfessionalReportCTA/><TrustSection/><HomeFAQ/><CBAMCTA/></main>;
 }
