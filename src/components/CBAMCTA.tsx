@@ -21,12 +21,14 @@ export default function CBAMCTA() {
           <a href="/hs-code-checker">HS Code Checker</a>
           <a href="/cbam-default-values">Default Values</a>
           <a href="/cbam-certificate-price">Certificate Price</a>
+          <a href="/report">Assessment Report</a>
         </div>
         <div>
           <b>Resources</b>
           <a href="/cbam-deadlines">Deadlines</a>
           <a href="/cbam-guide">CBAM Guide</a>
           <a href="/cbam-hs-code-list">CN Code List</a>
+          <a href="/cbam-compliance-checklist">Compliance Checklist</a>
           <a href="/blog">Guides & Resources</a>
         </div>
         <div>
