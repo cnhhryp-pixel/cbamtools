@@ -24,7 +24,10 @@ export type CBAMDefaultValueRecord = {
  * Regulatory numeric data is intentionally empty until each official
  * corrected definitive-period source row is imported and validated.
  */
-export const cbamDefaultValues: CBAMDefaultValueRecord[] = [];
+export const cbamDefaultValues: CBAMDefaultValueRecord[] = [
+  {id:"AL-2523100090-A",cnCode:"2523100090",sector:"Cement",countryOrTerritory:"Albania",productionRoute:"A",directEmissions:0.870,indirectEmissions:0,totalEmissions:0.870,unit:"tCO2e/t",sourceRegulation:"Implementing Regulation (EU) 2026/1740",sourceVersion:"Annex I corrected definitive-period values",sourceRow:"Albania · 2523100090 · Other clinker including grey clinker",effectiveFrom:"2026-01-01",validationStatus:"validated",validatedAt:"2026-09-22",importedFrom:"EU legal annex",legalValueVerified:true},
+  {id:"AL-25232900",cnCode:"25232900",sector:"Cement",countryOrTerritory:"Albania",directEmissions:0.900,indirectEmissions:0.030,totalEmissions:0.930,unit:"tCO2e/t",sourceRegulation:"Implementing Regulation (EU) 2026/1740",sourceVersion:"Annex I corrected definitive-period values",sourceRow:"Albania · 25232900 · Grey Portland cement",effectiveFrom:"2026-01-01",validationStatus:"validated",validatedAt:"2026-09-22",importedFrom:"EU legal annex",legalValueVerified:true}
+];
 
 export const defaultValueDatasetMeta = {
   dataset: "CBAM definitive-period default values",
