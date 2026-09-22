@@ -1,28 +1,4 @@
-export const metadata = {
-  title: "Contact CBAMtools - CBAM Assessment Support",
-  description:
-    "Contact CBAMtools for CBAM calculations, assessment reports and compliance preparation support.",
-};
-
-export default function Contact() {
-  return (
-    <main className="mx-auto max-w-4xl px-6 py-20">
-      <h1 className="text-4xl font-bold">Contact CBAMtools</h1>
-      <p className="mt-4 text-gray-600">
-        Request CBAM assistance, product classification support or compliance guidance.
-      </p>
-
-      <form className="mt-8 space-y-4">
-        <input className="w-full border p-3" placeholder="Name" />
-        <input className="w-full border p-3" placeholder="Company" />
-        <input className="w-full border p-3" placeholder="Email" />
-        <input className="w-full border p-3" placeholder="Product / HS Code" />
-        <input className="w-full border p-3" placeholder="Country" />
-        <textarea className="w-full border p-3" placeholder="Message" />
-        <button className="rounded-lg bg-blue-600 px-6 py-3 text-white">
-          Submit Inquiry
-        </button>
-      </form>
-    </main>
-  );
-}
+import SiteHeader from "../../components/SiteHeader";
+import SiteFooter from "../../components/SiteFooter";
+export const metadata={title:"Contact & Assessment Preparation | CBAMTools",description:"Prepare your CBAM assessment information and understand how to organise a support request."};
+export default function Contact(){return <><SiteHeader/><main className="contact-page"><section className="contact-hero"><span className="kicker">CONTACT & SUPPORT</span><h1>Prepare the case before you contact us.</h1><p>CBAMTools is currently a static information and calculation platform. We do not show a submit form that cannot actually deliver your message. Use the workflow below to prepare a reviewable assessment first.</p></section><section className="contact-grid"><div className="contact-card"><span>01</span><h2>Check the product</h2><p>Start with the CN / HS code and identify any classification uncertainty.</p><a href="/hs-code-checker">Open code checker →</a></div><div className="contact-card"><span>02</span><h2>Prepare the inputs</h2><p>Organise origin, quantity, supplier and embedded-emissions information.</p><a href="/cbam-supplier-emission-data">Supplier data checklist →</a></div><div className="contact-card"><span>03</span><h2>Generate an assessment</h2><p>Use the calculator and create a report that keeps assumptions and open questions visible.</p><a href="/cbam-calculator">Start assessment →</a></div></section><section className="contact-note"><div><span className="kicker">SUPPORT STATUS</span><h2>Direct enquiry submission is not enabled yet.</h2><p>Because this site is deployed as a static GitHub Pages application, the previous form had no connected submission backend. It has been removed so users are not shown a misleading “Submit Inquiry” action.</p></div><div className="contact-checklist"><b>Before requesting support, prepare:</b><ul><li>Product description and CN / HS code</li><li>Country of origin and supplier / installation</li><li>Import quantity</li><li>Embedded-emissions data and source</li><li>The question or assumption that needs review</li></ul></div></section></main><SiteFooter/></>}
