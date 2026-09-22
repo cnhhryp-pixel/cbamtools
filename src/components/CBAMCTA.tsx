@@ -8,6 +8,7 @@ export default function CBAMCTA() {
         <div>
           <a className="primary-action" href="/hs-code-checker">Start with product coverage →</a>
           <a href="/cbam-calculator">Open Calculator</a>
+          <a href="/enterprise">Enterprise workflow</a>
         </div>
       </section>
       <footer className="site-footer">
@@ -34,6 +35,7 @@ export default function CBAMCTA() {
         <div>
           <b>Company</b>
           <a href="/about">About</a>
+          <a href="/enterprise">Enterprise</a>
           <a href="/contact">Contact</a>
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
