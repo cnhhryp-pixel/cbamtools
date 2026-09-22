@@ -31,7 +31,7 @@ export default function Page(){
             <select value={sector} onChange={e=>setSector(e.target.value)}>{sectors.map(s=><option key={s}>{s}</option>)}</select>
           </div>
         </section>
-        <section className="code-db-body">
+        <section className="code-db-body"><div className="data-model-strip"><div><small>DATA MODEL</small><b>Code → Country → Production Route → Regulatory Inputs</b></div><span>2026 definitive-period architecture</span></div>
           <div className="code-db-meta"><b>{rows.length}</b><span>matching screening rules</span><a href="/hs-code-checker">Open interactive checker →</a></div>
           <div className="code-db-table">
             <div className="code-db-head"><span>CODE / PREFIX</span><span>SECTOR</span><span>PRODUCT DESCRIPTION</span><span>GAS</span><span></span></div>
