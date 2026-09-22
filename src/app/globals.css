@@ -68,3 +68,5 @@
 
 /* Verified default value results */
 .verified-values{margin:26px 0}.verified-values>div{display:grid;grid-template-columns:1fr auto;gap:5px 18px;padding:16px 18px;border:1px solid #cfe2d9;border-radius:10px;background:#f7fcf9;margin-top:8px}.verified-values b{font-size:11px;color:var(--ink)}.verified-values span{font-size:10px;font-weight:900;color:#18735b}.verified-values small{grid-column:1/-1;font-size:9px;color:#708194}@media(max-width:600px){.verified-values>div{grid-template-columns:1fr}}
+
+.use-default-value{grid-column:1/-1;display:inline-flex;width:max-content;margin-top:5px;font-size:9px;font-weight:900;color:var(--blue);text-decoration:none}.use-default-value:hover{text-decoration:underline}
