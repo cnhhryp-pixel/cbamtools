@@ -21,7 +21,10 @@ function CalculatorContent() {
   const [country,setCountry] = useState(params.get("country") || "China");
   const [quantity,setQuantity] = useState("100");
   const [emission,setEmission] = useState(params.get("emissions") || "2");
-  const [source,setSource] = useState(params.get("emissions") ? "EU default value" : "Supplier / manual data");
+  const [source,setSource] = useState(params.get("emissionSource") || (params.get("emissions") ? "EU default value" : "Supplier / manual data"));
+  const route=params.get("route")||params.get("productionRoute")||"";
+  const datasetVersion=params.get("datasetVersion")||params.get("dataset")||"";
+  const defaultValueId=params.get("defaultValueId")||"";
   const [price,setPrice] = useState("75.28");
   const [benchmark,setBenchmark] = useState("");
   const [factor,setFactor] = useState("97.5");
@@ -40,7 +43,7 @@ function CalculatorContent() {
     sector,code,country,quantity,emission,price,benchmark,factor,paid,
     gross:String(result.gross),free:String(result.free),adjusted:String(result.adjusted),
     credit:String(result.credit),cert:String(result.cert),cost:String(result.cost),
-    emissionSource:source,dataset:source==="EU default value"?"2026 Definitive Period":"User supplied"
+    emissionSource:source,route,datasetVersion:datasetVersion||(source==="EU default value"?"2026 Definitive Period":"User supplied"),defaultValueId
   }).toString();
 
   return (
