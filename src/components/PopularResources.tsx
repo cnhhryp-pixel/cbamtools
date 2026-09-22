@@ -1,10 +1,10 @@
 const resources = [
   ["REFERENCE", "Default Values", "Find the right path when supplier emissions data is unavailable or incomplete.", "/cbam-default-values", "Explore default values"],
-  ["TIMELINE", "CBAM Deadlines", "Track the major 2026–2027 implementation milestones and preparation dates.", "/cbam-deadlines", "View timeline"],
+  ["TIMELINE", "CBAM Deadlines", "Review key implementation milestones and preparation dates in one timeline.", "/cbam-deadlines", "View timeline"],
   ["GUIDE", "Importer Guide", "Organise product, supplier and emissions information before assessment.", "/cbam-for-importers", "Read importer guide"],
   ["CHECKLIST", "Compliance Checklist", "Work through classification, emissions, cost and documentation tasks.", "/cbam-compliance-checklist", "Open checklist"],
   ["DATA", "Supplier Emissions Data", "Build a more consistent request and review process for supplier information.", "/cbam-supplier-emission-data", "Review data needs"],
-  ["REPORT", "Assessment Report", "Understand what to document after modelling CBAM exposure.", "/cbam-assessment-report", "See report workflow"]
+  ["REPORT", "Assessment Report", "Turn calculator inputs into a structured planning record.", "/report", "Generate report"]
 ];
 
 export default function PopularResources() {
