@@ -97,3 +97,14 @@
 .result-report-btn{display:block;margin-top:20px;padding:13px 15px;border-radius:8px;background:#fff;color:#0b2945;text-align:center;font-size:11px;font-weight:900}
 @media(max-width:850px){.calc-v2-grid{grid-template-columns:1fr}.calc-v2-result{position:static}.calc-hero-flow{justify-content:flex-start}}
 @media(max-width:560px){.calc-v2-grid{padding:28px 20px 55px}.calc-form-card{padding:22px}.calc-two,.source-switch{grid-template-columns:1fr}.calc-hero-flow{white-space:normal;flex-wrap:wrap}.result-context{grid-template-columns:1fr 1fr}}
+
+
+/* Inner-page CTA contrast fix */
+.article-cta{background:linear-gradient(115deg,#0b2945,#123f5b)!important;color:#fff!important}
+.article-cta .kicker,.article-cta .light{color:#6fe0df!important}
+.article-cta h2{color:#fff!important}
+.article-cta p{color:#c5d6e2!important}
+.article-cta a{color:#fff!important;border-color:#ffffff66!important}
+.article-cta .cta-primary{background:#fff!important;color:#0b2945!important;border-color:#fff!important}
+.article-cta a:hover{background:#ffffff12}
+.article-cta .cta-primary:hover{background:#eef7fb!important}
