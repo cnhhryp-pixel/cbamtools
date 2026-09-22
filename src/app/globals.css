@@ -62,3 +62,6 @@
 
 /* Production route lookup */
 .route-field{display:block;margin-top:14px;font-size:10px;font-weight:800;color:var(--ink)}.route-field>span{display:inline;font-size:9px;font-weight:600;color:#8291a0}.route-field input,.route-field select{display:block;width:100%;margin-top:6px;padding:10px 12px;border:1px solid #cbd8e4;border-radius:8px;background:#fff;font-size:11px;color:var(--ink)}
+
+/* Default-value dataset health */
+.dataset-health{display:flex;align-items:center;gap:10px;margin:0 0 14px;padding:10px 14px;border:1px solid #dce6ee;border-radius:9px;background:#fff}.dataset-health span{font-size:8px;font-weight:900;letter-spacing:.08em;color:var(--cyan)}.dataset-health b{font-size:9px;color:var(--ink)}.dataset-health em{margin-left:auto;font-size:9px;font-style:normal;color:#718295}@media(max-width:650px){.dataset-health{align-items:flex-start;flex-direction:column}.dataset-health em{margin-left:0}}
