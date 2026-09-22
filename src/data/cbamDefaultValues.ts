@@ -24,7 +24,15 @@ export type CBAMDefaultValueRecord = {
  * Regulatory numeric data is intentionally empty until each official
  * corrected definitive-period source row is imported and validated.
  */
-export const cbamDefaultValues: CBAMDefaultValueRecord[] = [];
+export const cbamDefaultValues: CBAMDefaultValueRecord[] = [
+  {id:"AL-2523100090-A",cnCode:"2523100090",sector:"Cement",countryOrTerritory:"Albania",productionRoute:"A",directEmissions:0.870,indirectEmissions:0.000,totalEmissions:0.870,unit:"tCO2e/t",sourceRegulation:"Implementing Regulation (EU) 2026/1740",sourceVersion:"Annex I corrected definitive-period values",sourceRow:"Albania · 2523100090 · Other clinker including grey clinker",effectiveFrom:"2026-01-01",validationStatus:"validated",validatedAt:"2026-09-22",importedFrom:"EU legal annex",legalValueVerified:true},
+  {id:"AL-25232900",cnCode:"25232900",sector:"Cement",countryOrTerritory:"Albania",directEmissions:0.900,indirectEmissions:0.030,totalEmissions:0.930,unit:"tCO2e/t",sourceRegulation:"Implementing Regulation (EU) 2026/1740",sourceVersion:"Annex I corrected definitive-period values",sourceRow:"Albania · 25232900 · Grey Portland cement",effectiveFrom:"2026-01-01",validationStatus:"validated",validatedAt:"2026-09-22",importedFrom:"EU legal annex",legalValueVerified:true},
+  {id:"AL-2523900090-A",cnCode:"2523900090",sector:"Cement",countryOrTerritory:"Albania",productionRoute:"A",directEmissions:0.860,indirectEmissions:0.030,totalEmissions:0.890,unit:"tCO2e/t",sourceRegulation:"Implementing Regulation (EU) 2026/1740",sourceVersion:"Annex I corrected definitive-period values",sourceRow:"Albania · 2523900090 · Other hydraulic cements including grey hydraulic cements",effectiveFrom:"2026-01-01",validationStatus:"validated",validatedAt:"2026-09-22",importedFrom:"EU legal annex",legalValueVerified:true},
+  {id:"AL-28080000",cnCode:"28080000",sector:"Fertilisers",countryOrTerritory:"Albania",directEmissions:2.730,indirectEmissions:0.040,totalEmissions:2.760,unit:"tCO2e/t",sourceRegulation:"Implementing Regulation (EU) 2026/1740",sourceVersion:"Annex I corrected definitive-period values",sourceRow:"Albania · 28080000 · Nitric acid; sulphonitric acids",effectiveFrom:"2026-01-01",validationStatus:"validated",validatedAt:"2026-09-22",importedFrom:"EU legal annex",legalValueVerified:true},
+  {id:"AL-28142000",cnCode:"28142000",sector:"Fertilisers",countryOrTerritory:"Albania",directEmissions:0.650,indirectEmissions:0.030,totalEmissions:0.680,unit:"tCO2e/t",sourceRegulation:"Implementing Regulation (EU) 2026/1740",sourceVersion:"Annex I corrected definitive-period values",sourceRow:"Albania · 28142000 · Ammonia in aqueous solution",effectiveFrom:"2026-01-01",validationStatus:"validated",validatedAt:"2026-09-22",importedFrom:"EU legal annex",legalValueVerified:true},
+  {id:"AL-28342100",cnCode:"28342100",sector:"Fertilisers",countryOrTerritory:"Albania",directEmissions:2.190,indirectEmissions:0.050,totalEmissions:2.240,unit:"tCO2e/t",sourceRegulation:"Implementing Regulation (EU) 2026/1740",sourceVersion:"Annex I corrected definitive-period values",sourceRow:"Albania · 28342100 · Nitrate of potassium",effectiveFrom:"2026-01-01",validationStatus:"validated",validatedAt:"2026-09-22",importedFrom:"EU legal annex",legalValueVerified:true},
+  {id:"AL-31021012",cnCode:"31021012",sector:"Fertilisers",countryOrTerritory:"Albania",directEmissions:0.440,indirectEmissions:0.030,totalEmissions:0.470,unit:"tCO2e/t",sourceRegulation:"Implementing Regulation (EU) 2026/1740",sourceVersion:"Annex I corrected definitive-period values",sourceRow:"Albania · 31021012 · Urea in aqueous solution",effectiveFrom:"2026-01-01",validationStatus:"validated",validatedAt:"2026-09-22",importedFrom:"EU legal annex",legalValueVerified:true}
+];
 
 export const defaultValueRules = {
   totalEmissionsColumnIsBindingInput: true,
@@ -46,7 +54,7 @@ export const defaultValueDatasetMeta = {
   period: "2026",
   legalBasis: "Implementing Regulation (EU) 2025/2621",
   correction: "Implementing Regulation (EU) 2026/1740",
-  status: "official source mapped / legal-row verification required",
+  status: "official legal rows importing / verified subset live",
   lastReviewed: "2026-09-22"
 } as const;
 
