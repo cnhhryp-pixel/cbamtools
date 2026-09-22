@@ -1,32 +1,3 @@
-export const metadata = {
-  title: "CBAM for Importers - EU Importer Preparation Guide",
-  description:
-    "A practical CBAM guide for EU importers covering product checks, HS codes, emissions data and preparation steps.",
-};
-
-export default function CBAMForImportersPage() {
-  return (
-    <main className="mx-auto max-w-4xl px-6 py-20">
-      <h1 className="text-4xl font-bold">CBAM for Importers: How to Prepare for EU Carbon Reporting</h1>
-
-      <p className="mt-6 text-gray-700">
-        EU importers of covered products need to understand CBAM requirements,
-        collect relevant information and prepare accurate emissions reporting.
-      </p>
-
-      <h2 className="mt-10 text-2xl font-bold">Key preparation steps</h2>
-
-      <ol className="mt-4 list-decimal pl-6 text-gray-700 space-y-2">
-        <li>Review imported products and HS code classification.</li>
-        <li>Identify whether products may fall within CBAM scope.</li>
-        <li>Request emissions information from suppliers.</li>
-        <li>Estimate potential carbon-related costs.</li>
-      </ol>
-
-      <h2 className="mt-10 text-2xl font-bold">Use CBAMtools</h2>
-      <p className="mt-3 text-gray-700">
-        CBAMtools provides calculators and assessment reports to help importers organize their preparation workflow.
-      </p>
-    </main>
-  );
-}
+import ContentPage from "../../components/ContentPage";
+export const metadata={title:"CBAM for Importers | Practical Preparation Guide",description:"A practical workflow for importers covering product classification, scope screening, supplier emissions data, cost modelling and assessment records."};
+export default function Page(){return <ContentPage eyebrow="IMPORTER GUIDE" title="CBAM for importers: organise the workflow before the deadline" intro="A practical preparation path for teams that need to connect imported-product data with classification, emissions information and CBAM assessment records."><h2>Start with your import data</h2><p>Create a working list of products, suppliers, origin countries, quantities and CN classifications. This gives the compliance team a consistent base for scope screening and supplier follow-up.</p><div className="info-grid"><div><b>Product</b><p>Commercial description and the classification used for EU customs purposes.</p></div><div><b>Origin</b><p>Country of origin and supplier or installation information.</p></div><div><b>Quantity</b><p>The imported quantity in the unit required by the assessment workflow.</p></div><div><b>Emissions</b><p>Supplier emissions data or the applicable alternative input where permitted.</p></div></div><h2>A practical importer workflow</h2><ol className="steps"><li><b>Screen product scope</b><span>Use the code checker to identify products that require a closer CBAM review.</span></li><li><b>Confirm classification</b><span>Resolve uncertain CN classifications before relying on downstream calculations.</span></li><li><b>Request supplier data</b><span>Ask suppliers for the production and emissions information relevant to the goods.</span></li><li><b>Model exposure</b><span>Use the calculator to organise the current cost assumptions.</span></li><li><b>Record gaps</b><span>Generate an assessment report and keep unresolved inputs visible for follow-up.</span></li></ol><div className="callout"><b>Good practice</b><p>Keep the source and date of classification, emissions and price inputs. A calculation is easier to review when its assumptions can be traced.</p></div></ContentPage>}
