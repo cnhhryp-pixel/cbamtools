@@ -26,7 +26,7 @@ export default function Page() {
           <div className="content-hero-inner">
             <span className="kicker">KNOWLEDGE BASE</span>
             <h1>CBAM guides & practical resources</h1>
-            <p>Use focused guides to move from product classification and supplier data to cost modelling and assessment documentation.</p>
+            <p>Use focused guides to move from product classification and supplier data to cost modelling and assessment documentation.</p><div className="content-hero-actions"><a href="/hs-code-checker">Start with product coverage →</a><a href="/cbam-calculator">Open calculator</a></div>
           </div>
         </section>
         <section className="section resources">
