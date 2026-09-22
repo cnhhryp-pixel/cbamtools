@@ -4,6 +4,9 @@ export type CBAMCodeRule = {
   product: string;
   gas: string;
   status: "covered" | "detail";
+  defaultValueKey?: string;
+  benchmarkKey?: string;
+  routeRequired?: boolean;
 };
 
 export const cbamCodeRules: CBAMCodeRule[] = [
@@ -50,3 +53,22 @@ export const cbamExcludedCodes = [
   "72022","72023000","72025000","72027000","72028000","72029100",
   "72029200","72029300","720299","7204","31056000"
 ];
+
+
+export type CBAMAssessmentKey = {
+  code: string;
+  sector: string;
+  country?: string;
+  productionRoute?: string;
+};
+
+export function buildAssessmentKey(rule: CBAMCodeRule, country = "", productionRoute = ""): CBAMAssessmentKey {
+  return {code: rule.prefix, sector: rule.sector, country, productionRoute};
+}
+
+export const cbamDataModel = {
+  version: "2026-definitive",
+  dimensions: ["CN/TARIC code", "sector", "country/territory", "production route"],
+  futureFields: ["default value", "benchmark/free-allocation input", "source regulation", "source row", "effective period"],
+  note: "Numeric regulatory fields remain empty until the official corrected source rows are imported and validated."
+} as const;
