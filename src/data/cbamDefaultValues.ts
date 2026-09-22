@@ -16,6 +16,8 @@ export type CBAMDefaultValueRecord = {
   validationStatus: "pending" | "validated" | "superseded";
   validatedAt?: string;
   notes?: string;
+  importedFrom: "EU legal annex" | "Commission XLSX";
+  legalValueVerified: boolean;
 };
 
 /**
@@ -29,7 +31,7 @@ export const defaultValueDatasetMeta = {
   period: "2026",
   legalBasis: "Implementing Regulation (EU) 2025/2621",
   correction: "Implementing Regulation (EU) 2026/1740",
-  status: "schema-ready / numeric import pending",
+  status: "official source mapped / numeric row import pending",
   lastReviewed: "2026-09-22"
 } as const;
 
@@ -47,4 +49,11 @@ export function findDefaultValues(input:{
     if(input.productionRoute && row.productionRoute!==input.productionRoute) return false;
     return true;
   });
+}
+
+
+export function datasetQuality(){
+  const validated=cbamDefaultValues.filter(row=>row.validationStatus==="validated"&&row.legalValueVerified).length;
+  const pending=cbamDefaultValues.filter(row=>row.validationStatus==="pending").length;
+  return {rows:cbamDefaultValues.length,validated,pending};
 }
