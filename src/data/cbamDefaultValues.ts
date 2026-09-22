@@ -26,6 +26,21 @@ export type CBAMDefaultValueRecord = {
  */
 export const cbamDefaultValues: CBAMDefaultValueRecord[] = [];
 
+export const defaultValueRules = {
+  totalEmissionsColumnIsBindingInput: true,
+  markups: {2026:{standard:0.10,fertiliser:0.01},2027:{standard:0.20,fertiliser:0.01},2028:{standard:0.30,fertiliser:0.01}},
+  fallbackCountryTable: "Other countries and territories",
+  productionRouteIndependentWhenMissing: true,
+  electricityHandledSeparately: true
+} as const;
+
+export function definitiveDefaultValue(totalEmissions:number,sector:string,year=2026){
+  const y=year>=2028?2028:(year===2027?2027:2026);
+  const rate=sector==="Fertilisers"?defaultValueRules.markups[y].fertiliser:defaultValueRules.markups[y].standard;
+  return totalEmissions*(1+rate);
+}
+
+
 export const defaultValueDatasetMeta = {
   dataset: "CBAM definitive-period default values",
   period: "2026",
