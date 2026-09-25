@@ -23,7 +23,7 @@ export default function PayPalCheckoutCard(){
    code&&`CN / HS code: ${code}`,
    country&&`Origin: ${country}`,
    quantity&&`Quantity: ${quantity} tonnes`,
-   cost&&`Estimated CBAM cost: €${fmt.format(Number(cost)||0)}`
+   cost&&`Estimated CBAM cost: €${fmt.format(Number(cost)||0)}`,\n   company&&`Company: ${company}`,\n   contact&&`Contact: ${contact}`,\n   reportRef&&`Report reference: ${reportRef}`
  ].filter(Boolean).join("\n");
  const body=encodeURIComponent(`Hello CBAMTools,
 
