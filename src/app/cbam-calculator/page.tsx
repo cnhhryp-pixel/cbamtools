@@ -1,4 +1,5 @@
 "use client";
+
 import { Suspense, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
@@ -29,7 +30,10 @@ function CalculatorContent() {
   const [benchmark,setBenchmark] = useState("");
   const [factor,setFactor] = useState("97.5");
   const [paid,setPaid] = useState("");
-  const [advanced,setAdvanced] = useState(false);\n  const [company,setCompany] = useState(params.get("company") || "");\n  const [contact,setContact] = useState(params.get("contact") || "");\n  const [reportDetails,setReportDetails] = useState(Boolean(params.get("company") || params.get("contact")));
+  const [advanced,setAdvanced] = useState(false);
+  const [company,setCompany] = useState(params.get("company") || "");
+  const [contact,setContact] = useState(params.get("contact") || "");
+  const [reportDetails,setReportDetails] = useState(Boolean(params.get("company") || params.get("contact")));
 
   const result = useMemo(() => {
     const q=Math.max(0,Number(quantity)||0), e=Math.max(0,Number(emission)||0), p=Math.max(0,Number(price)||0);
@@ -43,7 +47,9 @@ function CalculatorContent() {
     sector,code,country,quantity,emission,price,benchmark,factor,paid,
     gross:String(result.gross),free:String(result.free),adjusted:String(result.adjusted),
     credit:String(result.credit),cert:String(result.cert),cost:String(result.cost),
-    emissionSource:source,route,datasetVersion:datasetVersion||(source==="EU default value"?"2026 Definitive Period":"User supplied"),defaultValueId,company,contact
+    emissionSource:source,route,
+    datasetVersion:datasetVersion||(source==="EU default value"?"2026 Definitive Period":"User supplied"),
+    defaultValueId,company,contact
   }).toString();
 
   return (
@@ -81,9 +87,28 @@ function CalculatorContent() {
             <label>Embedded emissions (tCO₂e / tonne)<input value={emission} onChange={e=>setEmission(e.target.value)} inputMode="decimal"/></label>
 
             <div className="calc-step"><span>03</span><div><small>IMPORT CALCULATION</small><h2>Enter shipment assumptions.</h2></div></div>
-            <div className="calc-two"><label>Import quantity (tonnes)<input value={quantity} onChange={e=>setQuantity(e.target.value)} inputMode="decimal"/></label><label>Certificate price (€ / tCO₂)<input value={price} onChange={e=>setPrice(e.target.value)} inputMode="decimal"/></label></div>
+            <div className="calc-two">
+              <label>Import quantity (tonnes)<input value={quantity} onChange={e=>setQuantity(e.target.value)} inputMode="decimal"/></label>
+              <label>Certificate price (€ / tCO₂)<input value={price} onChange={e=>setPrice(e.target.value)} inputMode="decimal"/></label>
+            </div>
+
             <button className="advanced-toggle" type="button" onClick={()=>setAdvanced(!advanced)}>{advanced?"Hide":"Show"} advanced assumptions</button>
-            {advanced && <div className="advanced-box"><div className="calc-two"><label>Benchmark input<input value={benchmark} onChange={e=>setBenchmark(e.target.value)} inputMode="decimal"/></label><label>2026 CBAM factor (%)<input value={factor} onChange={e=>setFactor(e.target.value)} inputMode="decimal"/></label></div><label>Carbon price already paid (€ / tCO₂)<input value={paid} onChange={e=>setPaid(e.target.value)} inputMode="decimal"/></label></div>}\n            <button className="report-details-toggle" type="button" onClick={()=>setReportDetails(!reportDetails)}>{reportDetails?"Hide":"Add"} report details (optional)</button>\n            {reportDetails && <div className="report-details-box"><div><small>REPORT IDENTITY</small><b>Prepare the assessment for a company or contact.</b><span>These fields are carried into the report preview and checkout.</span></div><div className="calc-two"><label>Company / organisation<input value={company} onChange={e=>setCompany(e.target.value)} placeholder="e.g. Example Imports Ltd."/></label><label>Contact email<input type="email" value={contact} onChange={e=>setContact(e.target.value)} placeholder="name@company.com"/></label></div></div>}
+            {advanced && <div className="advanced-box">
+              <div className="calc-two">
+                <label>Benchmark input<input value={benchmark} onChange={e=>setBenchmark(e.target.value)} inputMode="decimal"/></label>
+                <label>2026 CBAM factor (%)<input value={factor} onChange={e=>setFactor(e.target.value)} inputMode="decimal"/></label>
+              </div>
+              <label>Carbon price already paid (€ / tCO₂)<input value={paid} onChange={e=>setPaid(e.target.value)} inputMode="decimal"/></label>
+            </div>}
+
+            <button className="report-details-toggle" type="button" onClick={()=>setReportDetails(!reportDetails)}>{reportDetails?"Hide":"Add"} report details (optional)</button>
+            {reportDetails && <div className="report-details-box">
+              <div><small>REPORT IDENTITY</small><b>Prepare the assessment for a company or contact.</b><span>These fields are carried into the report preview and checkout.</span></div>
+              <div className="calc-two">
+                <label>Company / organisation<input value={company} onChange={e=>setCompany(e.target.value)} placeholder="e.g. Example Imports Ltd."/></label>
+                <label>Contact email<input type="email" value={contact} onChange={e=>setContact(e.target.value)} placeholder="name@company.com"/></label>
+              </div>
+            </div>}
           </section>
 
           <aside className="result-panel calc-v2-result">
@@ -93,7 +118,8 @@ function CalculatorContent() {
             <div className="result-row"><span>Gross embedded emissions</span><b>{fmt.format(result.gross)} tCO₂e</b></div>
             <div className="result-row"><span>After adjustment</span><b>{fmt.format(result.adjusted)} tCO₂e</b></div>
             <div className="result-row total"><span>Estimated certificates</span><b>{fmt.format(result.cert)}</b></div>
-            <a className="result-report-btn" href={reportHref}>Generate assessment report →</a><span className="result-upgrade-hint">Free preview first · Professional report available for $9.90</span>
+            <a className="result-report-btn" href={reportHref}>Generate assessment report →</a>
+            <span className="result-upgrade-hint">Free preview first · Professional report available for $9.90</span>
             <p className="result-disclaimer">Planning estimate only. Confirm classification, emissions method, applicable adjustments and certificate price before compliance use.</p>
           </aside>
         </div>
