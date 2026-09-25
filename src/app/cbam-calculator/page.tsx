@@ -93,7 +93,7 @@ function CalculatorContent() {
             <div className="result-row"><span>Gross embedded emissions</span><b>{fmt.format(result.gross)} tCO₂e</b></div>
             <div className="result-row"><span>After adjustment</span><b>{fmt.format(result.adjusted)} tCO₂e</b></div>
             <div className="result-row total"><span>Estimated certificates</span><b>{fmt.format(result.cert)}</b></div>
-            <a className="result-report-btn" href={reportHref}>Generate assessment report →</a>
+            <a className="result-report-btn" href={reportHref}>Generate assessment report →</a><span className="result-upgrade-hint">Free preview first · Professional report available for $9.90</span>
             <p className="result-disclaimer">Planning estimate only. Confirm classification, emissions method, applicable adjustments and certificate price before compliance use.</p>
           </aside>
         </div>
