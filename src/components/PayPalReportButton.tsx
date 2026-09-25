@@ -1,1 +1,1 @@
-export default function PayPalReportButton(){return <a href="https://www.paypal.com/paypalme/cbamtools/9.90" className="inline-block rounded-lg bg-blue-600 px-5 py-3 text-white">Buy Professional Report - $9.90</a>}
+export default function PayPalReportButton(){return <a href="/checkout" className="inline-block rounded-lg bg-blue-600 px-5 py-3 text-white">Continue to PayPal checkout - $9.90</a>}

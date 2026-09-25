@@ -1,0 +1,6 @@
+import type {Metadata} from "next";
+import SiteHeader from "../../components/SiteHeader";
+import SiteFooter from "../../components/SiteFooter";
+import PayPalCheckoutCard from "../../components/PayPalCheckoutCard";
+export const metadata:Metadata={title:"Checkout | CBAM Professional Report",description:"Purchase a CBAM Professional Report using PayPal.",robots:{index:false,follow:false}};
+export default function CheckoutPage(){return <><SiteHeader/><main className="checkout-page"><section className="checkout-hero"><span className="kicker">SECURE CHECKOUT</span><h1>Upgrade your assessment to a professional report.</h1><p>Review the price, pay through PayPal, then send the transaction ID for verification. Your calculator remains free to use.</p></section><PayPalCheckoutCard/><section className="checkout-help"><div><b>Need help before paying?</b><span>Contact <a href="mailto:cnhhryp@gmail.com">cnhhryp@gmail.com</a></span></div><div><b>Purchase terms</b><span>Review the <a href="/refund-policy">refund policy</a> and <a href="/terms">terms of service</a>.</span></div></section></main><SiteFooter/></>}
