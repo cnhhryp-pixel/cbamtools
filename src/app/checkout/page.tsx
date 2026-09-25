@@ -17,11 +17,26 @@ export default function CheckoutPage(){
       <section className="checkout-hero">
         <span className="kicker">SECURE CHECKOUT</span>
         <h1>Upgrade your assessment to a professional report.</h1>
-        <p>Review the assessment summary, pay through PayPal, then send the transaction ID for verification. Your calculator remains free to use.</p>
+        <p>Review the assessment, pay in PayPal, then send the transaction ID for verification and report delivery.</p>
+        <div className="checkout-flow">
+          <div><b>01</b><span>Review assessment</span></div>
+          <i>→</i>
+          <div><b>02</b><span>Pay in PayPal</span></div>
+          <i>→</i>
+          <div><b>03</b><span>Send transaction ID</span></div>
+        </div>
       </section>
+
       <Suspense fallback={<section className="checkout-card"><div className="checkout-pay"><b>Preparing checkout…</b></div></section>}>
         <PayPalCheckoutCard/>
       </Suspense>
+
+      <section className="checkout-trust">
+        <div><small>PRICE</small><b>$9.90 one-time</b><span>No subscription is created by CBAMTools.</span></div>
+        <div><small>PAYMENT</small><b>Completed on PayPal</b><span>Your PayPal login stays on PayPal.</span></div>
+        <div><small>DELIVERY</small><b>Payment verification required</b><span>Send the transaction ID to match the report request.</span></div>
+      </section>
+
       <section className="checkout-help">
         <div><b>Need help before paying?</b><span>Contact <a href="mailto:cnhhryp@gmail.com">cnhhryp@gmail.com</a></span></div>
         <div><b>Purchase terms</b><span>Review the <a href="/refund-policy">refund policy</a> and <a href="/terms">terms of service</a>.</span></div>

@@ -9,14 +9,18 @@ const PAYPAL_SEND_URL="https://www.paypal.com/myaccount/transfer/send";
 const fmt=new Intl.NumberFormat("en-IE",{maximumFractionDigits:2});
 
 export default function PayPalCheckoutCard(){
-  const [copied,setCopied]=useState(false);
+  const [copiedEmail,setCopiedEmail]=useState(false);
+  const [copiedRef,setCopiedRef]=useState(false);
   const q=useSearchParams();
+
   const sector=q.get("sector")||"";
   const code=q.get("code")||"";
   const country=q.get("country")||"";
   const quantity=q.get("quantity")||"";
   const cost=q.get("cost")||"";
   const reportRef=q.get("reportRef")||"";
+  const paymentRef=reportRef||"CBAM-PRO-REPORT";
+
   const [company,setCompany]=useState(q.get("company")||"");
   const [contact,setContact]=useState(q.get("contact")||"");
 
@@ -35,7 +39,7 @@ export default function PayPalCheckoutCard(){
     cost&&`Estimated CBAM cost: €${fmt.format(Number(cost)||0)}`,
     company&&`Company: ${company}`,
     contact&&`Contact: ${contact}`,
-    reportRef&&`Report reference: ${reportRef}`
+    `Payment reference: ${paymentRef}`
   ].filter(Boolean).join("\n");
 
   const body=encodeURIComponent(`Hello CBAMTools,
@@ -46,7 +50,7 @@ PayPal transaction ID:
 PayPal payer email:
 Company: ${company}
 Contact: ${contact}
-Report reference: ${reportRef}
+Payment reference: ${paymentRef}
 
 Assessment details:
 ${summary||"No calculator details attached."}
@@ -54,13 +58,19 @@ ${summary||"No calculator details attached."}
 Please verify the payment and provide professional report access.
 `);
 
-  async function copyRecipient(){
+  async function copyText(value:string,type:"email"|"ref"){
     try{
-      await navigator.clipboard.writeText(PAYMENT_EMAIL);
-      setCopied(true);
-      window.setTimeout(()=>setCopied(false),1800);
+      await navigator.clipboard.writeText(value);
+      if(type==="email"){
+        setCopiedEmail(true);
+        window.setTimeout(()=>setCopiedEmail(false),1800);
+      }else{
+        setCopiedRef(true);
+        window.setTimeout(()=>setCopiedRef(false),1800);
+      }
     }catch{
-      setCopied(false);
+      if(type==="email") setCopiedEmail(false);
+      else setCopiedRef(false);
     }
   }
 
@@ -77,7 +87,7 @@ Please verify the payment and provide professional report access.
         <div><span>CN / HS</span><b>{code||"—"}</b></div>
         <div><span>Origin</span><b>{country||"—"}</b></div>
         <div><span>Quantity</span><b>{quantity?quantity+" t":"—"}</b></div>
-        {reportRef&&<div><span>Report ref</span><b>{reportRef}</b></div>}
+        <div><span>Payment ref</span><b>{paymentRef}</b></div>
         {company&&<div><span>Prepared for</span><b>{company}</b></div>}
         <div className="checkout-assessment-total"><span>Estimated cost</span><b>{cost?"€"+fmt.format(Number(cost)||0):"—"}</b></div>
         <a href={reportHref}>← Review report preview</a>
@@ -101,15 +111,30 @@ Please verify the payment and provide professional report access.
 
       <div className="checkout-divider"/>
       <span className="checkout-step">STEP 1</span>
-      <h3>Pay securely with PayPal</h3>
-      <p className="checkout-muted">Send <b>{PRICE}</b> to the PayPal account below. For purchases, use the goods / services option when PayPal offers it.</p>
-      <div className="recipient-box"><span>PAYPAL RECIPIENT</span><b>{PAYMENT_EMAIL}</b><button type="button" onClick={copyRecipient}>{copied?"Copied":"Copy email"}</button></div>
+      <h3>Pay in PayPal</h3>
+      <p className="checkout-muted">Send <b>{PRICE}</b> to the PayPal account below.</p>
+
+      <div className="recipient-box">
+        <span>PAYPAL RECIPIENT</span>
+        <b>{PAYMENT_EMAIL}</b>
+        <button type="button" onClick={()=>copyText(PAYMENT_EMAIL,"email")}>{copiedEmail?"Copied":"Copy email"}</button>
+      </div>
+
+      <div className="payment-reference-box">
+        <div>
+          <span>PAYMENT NOTE / REFERENCE</span>
+          <b>{paymentRef}</b>
+          <small>Add this reference in the PayPal message or note when that field is available.</small>
+        </div>
+        <button type="button" onClick={()=>copyText(paymentRef,"ref")}>{copiedRef?"Copied":"Copy reference"}</button>
+      </div>
+
       <a className="paypal-open-btn" href={PAYPAL_SEND_URL} target="_blank" rel="noopener noreferrer">Open PayPal →</a>
 
       <div className="checkout-divider"/>
       <span className="checkout-step">STEP 2</span>
       <h3>Confirm your transaction</h3>
-      <p className="checkout-muted">After payment, email the PayPal transaction ID so the purchase can be matched to this assessment and report access can be provided.</p>
+      <p className="checkout-muted">After payment, email the PayPal transaction ID so the purchase can be matched to this assessment.</p>
       <a className="confirm-payment-btn" href={`mailto:${PAYMENT_EMAIL}?subject=${subject}&body=${body}`}>Email payment confirmation</a>
       <p className="checkout-small">Automatic transaction verification is not enabled yet. Do not send passwords or card details by email. Only send the PayPal transaction ID and payer email.</p>
     </div>

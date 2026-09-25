@@ -182,3 +182,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .checkout-buyer-fields input:focus{border-color:var(--blue)}
 @media(max-width:700px){.report-meta{grid-template-columns:1fr 1fr}.report-client-line{grid-template-columns:1fr}.checkout-buyer-fields{grid-template-columns:1fr}}
 @media(max-width:460px){.report-meta{grid-template-columns:1fr}}
+
+
+/* Checkout conversion polish */
+.checkout-flow{display:flex;align-items:center;gap:12px;margin-top:24px;flex-wrap:wrap}
+.checkout-flow>div{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid #d8e4ed;border-radius:9px;background:#fff}
+.checkout-flow b{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;background:var(--mint);color:#087b6d;font-size:9px}
+.checkout-flow span{font-size:10px;font-weight:800;color:#52677a}.checkout-flow i{font-style:normal;color:#9aacba}
+.checkout-trust{max-width:1080px;margin:0 auto 22px;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.checkout-trust>div{padding:18px;border:1px solid var(--line);border-radius:11px;background:#fff}
+.checkout-trust small{display:block;color:var(--cyan);font-size:8px;font-weight:900;letter-spacing:.1em}
+.checkout-trust b{display:block;margin:5px 0;font-size:12px;color:var(--ink)}
+.checkout-trust span{display:block;font-size:9px;line-height:1.5;color:#718295}
+.payment-reference-box{margin:12px 0 14px;padding:15px 16px;border:1px solid #cfe4df;border-radius:10px;background:#f4fbf8;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.payment-reference-box span{display:block;color:#138a76;font-size:8px;font-weight:900;letter-spacing:.09em}
+.payment-reference-box b{display:block;margin:5px 0 3px;font-size:13px;color:var(--ink);word-break:break-word}
+.payment-reference-box small{display:block;color:#718295;font-size:8px;line-height:1.45}
+.payment-reference-box button{flex:none;border:1px solid #bcd8cf;background:#fff;color:#087b6d;border-radius:7px;padding:8px 10px;font-size:9px;font-weight:900;cursor:pointer}
+@media(max-width:760px){.checkout-trust{grid-template-columns:1fr}.checkout-flow i{display:none}}
+@media(max-width:560px){.checkout-flow{display:grid;grid-template-columns:1fr}.checkout-flow>div{width:100%}.payment-reference-box{align-items:flex-start;flex-direction:column}.payment-reference-box button{width:100%}}
