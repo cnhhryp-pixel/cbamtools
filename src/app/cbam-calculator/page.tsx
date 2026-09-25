@@ -2,6 +2,7 @@
 
 import { Suspense, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import SiteFooter from "../../components/SiteFooter";
 
 const sectors = ["Iron & Steel","Aluminium","Cement","Fertilisers","Hydrogen","Electricity"];
 const origins = ["China","India","Türkiye","United Kingdom","United States","South Korea","Japan","Vietnam","United Arab Emirates","South Africa","Brazil"];
@@ -119,13 +120,14 @@ function CalculatorContent() {
             <div className="result-context"><div><span>Sector</span><b>{sector}</b></div><div><span>CN / HS</span><b>{code||"—"}</b></div><div><span>Origin</span><b>{country}</b></div><div><span>Quantity</span><b>{fmt.format(Number(quantity)||0)} t</b></div></div>
             <div className="result-row"><span>Gross embedded emissions</span><b>{fmt.format(result.gross)} tCO₂e</b></div>
             <div className="result-row"><span>After adjustment</span><b>{fmt.format(result.adjusted)} tCO₂e</b></div>
-            <div className="result-row total"><span>Estimated certificates</span><b>{fmt.format(result.cert)}</b></div>
-            <a className="result-report-btn" href={reportHref}>Generate assessment report →</a>
+            <div className="result-row total"><span>Estimated certificates</span><b>{hasPrice?fmt.format(result.cert):"—"}</b></div>
+            <a className="result-report-btn" href={hasPrice?reportHref:"/cbam-certificate-price"}>{hasPrice?"Generate assessment report →":"Add certificate price first →"}</a>
             <span className="result-upgrade-hint">Free preview first · Professional report available for $9.90</span>
             <p className="result-disclaimer">Planning estimate only. Confirm classification, emissions method, applicable adjustments and certificate price before compliance use.</p>
           </aside>
         </div>
       </main>
+      <SiteFooter/>
     </>
   );
 }
