@@ -1,2 +1,4 @@
-export const metadata={title:'Refund Policy - CBAMtools'};
-export default function RefundPolicyPage(){return <main className="mx-auto max-w-4xl px-6 py-20"><h1 className="text-4xl font-bold">Refund Policy</h1><p className="mt-6 text-gray-700">Digital reports and downloadable products are provided after payment confirmation. Please contact CBAMtools for questions regarding purchases.</p></main>}
+import SiteHeader from "../../components/SiteHeader";
+import SiteFooter from "../../components/SiteFooter";
+export const metadata={title:"Refund Policy | CBAMTools"};
+export default function RefundPolicyPage(){return <><SiteHeader/><main className="policy-page"><span className="kicker">PURCHASE POLICY</span><h1>Refund Policy</h1><p>Digital reports are prepared or released after payment verification. If you paid by mistake, were charged incorrectly, or have not received the purchased report, contact us at <a href="mailto:cnhhryp@gmail.com">cnhhryp@gmail.com</a> with the PayPal transaction ID.</p><p>Refund eligibility can depend on whether the digital report has already been prepared or delivered and on the applicable PayPal and consumer-protection rules for the transaction.</p></main><SiteFooter/></>}

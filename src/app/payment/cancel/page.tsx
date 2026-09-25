@@ -1,13 +1,5 @@
-export default function PaymentCancel() {
-  return (
-    <main className="min-h-screen px-6 py-20 text-center">
-      <h1 className="text-4xl font-bold">Payment Cancelled</h1>
-      <p className="mt-4 text-gray-600">
-        No payment was completed. You can continue using the free CBAM tools and print your report.
-      </p>
-      <a className="mt-6 inline-block rounded-lg bg-blue-600 px-6 py-3 text-white" href="/report">
-        Return to Report
-      </a>
-    </main>
-  );
-}
+import type {Metadata} from "next";
+import SiteHeader from "../../../components/SiteHeader";
+import SiteFooter from "../../../components/SiteFooter";
+export const metadata:Metadata={title:"Payment Cancelled | CBAMTools",robots:{index:false,follow:false}};
+export default function PaymentCancel(){return <><SiteHeader/><main className="payment-status-page"><section className="payment-status-card"><span className="status-icon status-muted">×</span><span className="kicker">PAYMENT NOT COMPLETED</span><h1>No charge was confirmed.</h1><p>You can continue using the free CBAM tools, return to checkout later, or contact us if PayPal did not work as expected.</p><a className="primary-status-action" href="/checkout">Return to checkout</a><a className="secondary-status-action" href="mailto:cnhhryp@gmail.com">Contact support</a></section></main><SiteFooter/></>}

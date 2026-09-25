@@ -1,3 +1,5 @@
-export const metadata={title:'Payment Successful - CBAMtools'};
-
-export default function PaymentSuccess(){return <main className="mx-auto max-w-4xl px-6 py-20 text-center"><h1 className="text-4xl font-bold">Payment Successful</h1><p className="mt-6 text-gray-700">Thank you for your purchase. Your CBAM Professional Report is ready.</p><a href="/download-report" className="mt-8 inline-block rounded-lg bg-blue-600 px-6 py-3 text-white">Download Report</a></main>}
+import type {Metadata} from "next";
+import SiteHeader from "../../components/SiteHeader";
+import SiteFooter from "../../components/SiteFooter";
+export const metadata:Metadata={title:"Payment Confirmation | CBAMTools",robots:{index:false,follow:false}};
+export default function PaymentSuccessAlias(){const subject=encodeURIComponent("CBAM Professional Report payment confirmation");return <><SiteHeader/><main className="payment-status-page"><section className="payment-status-card"><span className="status-icon">✓</span><span className="kicker">NEXT STEP</span><h1>Send your PayPal transaction ID for verification.</h1><p>Email the transaction ID and payer email used for the $9.90 Professional Report purchase.</p><a className="primary-status-action" href={`mailto:cnhhryp@gmail.com?subject=${subject}`}>Email payment confirmation</a><a className="secondary-status-action" href="/report">Return to report preview</a></section></main><SiteFooter/></>}

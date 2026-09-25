@@ -1,2 +1,4 @@
-export const metadata={title:'Privacy Policy - CBAMtools'};
-export default function PrivacyPage(){return <main className="mx-auto max-w-4xl px-6 py-20"><h1 className="text-4xl font-bold">Privacy Policy</h1><p className="mt-6 text-gray-700">CBAMtools respects user privacy. Information submitted through forms may be used to respond to inquiries and provide requested services.</p></main>}
+import SiteHeader from "../../components/SiteHeader";
+import SiteFooter from "../../components/SiteFooter";
+export const metadata={title:"Privacy Policy | CBAMTools"};
+export default function PrivacyPage(){return <><SiteHeader/><main className="policy-page"><span className="kicker">PRIVACY</span><h1>Privacy Policy</h1><p>CBAMTools uses information you choose to provide to answer enquiries, match payment confirmations and provide requested report support.</p><p>Do not send passwords, full card numbers or PayPal login credentials by email. For purchase verification we only need information such as the PayPal transaction ID, payer email and report reference.</p><p>Privacy questions can be sent to <a href="mailto:cnhhryp@gmail.com">cnhhryp@gmail.com</a>.</p></main><SiteFooter/></>}

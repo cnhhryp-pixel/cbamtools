@@ -1,3 +1,5 @@
-export const metadata={title:'Download CBAM Professional Report - CBAMtools'};
-
-export default function DownloadReport(){return <main className="mx-auto max-w-4xl px-6 py-20 text-center"><h1 className="text-4xl font-bold">CBAM Professional Report Download</h1><p className="mt-6 text-gray-700">Your professional CBAM assessment report is ready.</p><a href="/sample-cbam-report.pdf" className="mt-8 inline-block rounded-lg bg-blue-600 px-6 py-3 text-white">Download PDF Report</a><p className="mt-6 text-sm text-gray-500">Keep this report for your CBAM preparation records.</p></main>}
+import type {Metadata} from "next";
+import SiteHeader from "../../components/SiteHeader";
+import SiteFooter from "../../components/SiteFooter";
+export const metadata:Metadata={title:"Professional Report Access | CBAMTools",robots:{index:false,follow:false}};
+export default function DownloadReport(){return <><SiteHeader/><main className="payment-status-page"><section className="payment-status-card"><span className="kicker">PROFESSIONAL REPORT ACCESS</span><h1>Payment verification is required before report delivery.</h1><p>If you have already paid, send your PayPal transaction ID and payer email to cnhhryp@gmail.com. This prevents an unverified public download link from bypassing the purchase step.</p><a className="primary-status-action" href="mailto:cnhhryp@gmail.com?subject=CBAM%20Professional%20Report%20payment%20verification">Send payment verification</a><a className="secondary-status-action" href="/checkout">Go to checkout</a></section></main><SiteFooter/></>}
