@@ -26,7 +26,7 @@ function CalculatorContent() {
   const route=params.get("route")||params.get("productionRoute")||"";
   const datasetVersion=params.get("datasetVersion")||params.get("dataset")||"";
   const defaultValueId=params.get("defaultValueId")||"";
-  const [price,setPrice] = useState("75.28");
+  const [price,setPrice] = useState(params.get("price") || "");
   const [benchmark,setBenchmark] = useState("");
   const [factor,setFactor] = useState("97.5");
   const [paid,setPaid] = useState("");
@@ -43,7 +43,7 @@ function CalculatorContent() {
     return {gross,free,adjusted,credit,cost,cert};
   },[quantity,emission,price,benchmark,factor,paid]);
 
-  const reportHref="/report?"+new URLSearchParams({
+  const hasPrice=Number(price)>0;\n\n  const reportHref="/report?"+new URLSearchParams({
     sector,code,country,quantity,emission,price,benchmark,factor,paid,
     gross:String(result.gross),free:String(result.free),adjusted:String(result.adjusted),
     credit:String(result.credit),cert:String(result.cert),cost:String(result.cost),
@@ -89,7 +89,7 @@ function CalculatorContent() {
             <div className="calc-step"><span>03</span><div><small>IMPORT CALCULATION</small><h2>Enter shipment assumptions.</h2></div></div>
             <div className="calc-two">
               <label>Import quantity (tonnes)<input value={quantity} onChange={e=>setQuantity(e.target.value)} inputMode="decimal"/></label>
-              <label>Certificate price (€ / tCO₂)<input value={price} onChange={e=>setPrice(e.target.value)} inputMode="decimal"/></label>
+              <label>Certificate price (€ / tCO₂)<input value={price} onChange={e=>setPrice(e.target.value)} inputMode="decimal" placeholder="Enter the applicable published price"/><a className="calc-price-helper" href="/cbam-certificate-price">Check published CBAM certificate prices →</a></label>
             </div>
 
             <button className="advanced-toggle" type="button" onClick={()=>setAdvanced(!advanced)}>{advanced?"Hide":"Show"} advanced assumptions</button>
@@ -113,7 +113,7 @@ function CalculatorContent() {
 
           <aside className="result-panel calc-v2-result">
             <span className="result-status">LIVE PLANNING ESTIMATE</span>
-            <div className="big-result"><small>ESTIMATED CBAM COST</small><strong>€{fmt.format(result.cost)}</strong><span>{source}</span></div>
+            <div className="big-result"><small>ESTIMATED CBAM COST</small><strong>{hasPrice?"€"+fmt.format(result.cost):"Enter price"}</strong><span>{hasPrice?source:"Add the applicable certificate price to complete the cost estimate"}</span></div>
             <div className="result-context"><div><span>Sector</span><b>{sector}</b></div><div><span>CN / HS</span><b>{code||"—"}</b></div><div><span>Origin</span><b>{country}</b></div><div><span>Quantity</span><b>{fmt.format(Number(quantity)||0)} t</b></div></div>
             <div className="result-row"><span>Gross embedded emissions</span><b>{fmt.format(result.gross)} tCO₂e</b></div>
             <div className="result-row"><span>After adjustment</span><b>{fmt.format(result.adjusted)} tCO₂e</b></div>

@@ -211,3 +211,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .not-found-page>section>div{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}
 .secondary-404{padding:14px 18px;border:1px solid #c7d6e3;border-radius:8px;color:var(--blue);font-size:13px;font-weight:800}
 @media(max-width:560px){.not-found-page>section{padding:38px 22px}.not-found-page h1{font-size:35px}.not-found-page>section>div{display:grid}.secondary-404,.not-found-page .primary-btn{width:100%}}
+
+
+/* Current certificate-price workflow */
+.calc-price-helper{display:block;margin-top:7px;color:var(--blue);font-size:9px;font-weight:900;line-height:1.45}
+.calc-price-helper:hover{text-decoration:underline}
