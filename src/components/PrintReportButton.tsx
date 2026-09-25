@@ -6,11 +6,8 @@ export default function PrintReportButton() {
   }
 
   return (
-    <button
-      onClick={printReport}
-      className="rounded-lg bg-blue-600 px-6 py-3 text-white"
-    >
-      Print CBAM Report
+    <button onClick={printReport} className="rounded-lg bg-blue-600 px-6 py-3 text-white">
+      Print / Save Free PDF
     </button>
   );
 }

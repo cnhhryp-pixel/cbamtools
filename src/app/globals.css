@@ -143,3 +143,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .policy-page{max-width:850px;margin:auto;padding:75px 24px 90px}.policy-page h1{font-size:42px;margin:10px 0 25px}.policy-page p{font-size:14px;line-height:1.8;color:#52677a}
 @media(max-width:850px){.checkout-card{grid-template-columns:1fr}.pricing-grid{grid-template-columns:1fr}.pricing-featured{transform:none}.checkout-hero h1,.pricing-hero h1{font-size:39px}}
 @media(max-width:560px){.checkout-hero,.pricing-hero{padding:48px 20px 25px}.checkout-hero h1,.pricing-hero h1{font-size:34px}.checkout-card{padding:0 20px}.checkout-summary,.checkout-pay{padding:24px}.recipient-box{padding-right:17px}.recipient-box button{position:static;transform:none;margin-top:10px}.checkout-help{grid-template-columns:1fr;padding:0 20px}.payment-status-card{padding:28px 22px}.policy-page{padding:55px 20px 70px}.policy-page h1{font-size:35px}}
+
+
+/* Report monetization polish */
+.report-pro-action{background:#0b2945!important;color:#fff!important;border-color:#0b2945!important}
+.report-free-note{max-width:1060px;margin:0 auto 14px;padding:12px 15px;border:1px solid #d7e3ec;border-radius:9px;background:#fff;display:flex;gap:9px;align-items:center;font-size:10px;color:#6c7d8e}
+.report-free-note b{color:#0b2945}.report-paper{position:relative;overflow:hidden}.free-preview-watermark{display:none}
+.report-upgrade-card{max-width:1060px;margin:24px auto 0;padding:30px 34px;border-radius:15px;background:linear-gradient(115deg,#0b2945,#123f5b);color:#fff;display:grid;grid-template-columns:1fr 220px;gap:36px;align-items:center;box-shadow:0 18px 50px #0b29451a}
+.report-upgrade-card h2{margin:9px 0 8px;font-size:26px;color:#fff}.report-upgrade-card p{margin:0;color:#c5d6e2;font-size:12px;line-height:1.65;max-width:700px}.report-upgrade-points{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:18px;color:#9fc7d3;font-size:10px}.report-upgrade-card>div:last-child{border-left:1px solid #ffffff24;padding-left:28px}.report-upgrade-card small{display:block;font-size:8px;letter-spacing:.1em;color:#9db6c7}.report-upgrade-card strong{display:block;font-size:34px;margin:7px 0 14px}.report-upgrade-card>div:last-child>a{display:block;text-align:center;padding:11px 12px;border-radius:8px;background:#fff;color:#0b2945;font-size:10px;font-weight:900}.report-upgrade-card .report-upgrade-email{margin-top:10px!important;padding:0!important;background:transparent!important;color:#a9c5d2!important;font-size:9px!important;font-weight:700!important}
+@media(max-width:700px){.report-upgrade-card{grid-template-columns:1fr;padding:26px 24px;margin:20px 12px 0}.report-upgrade-card>div:last-child{border-left:0;border-top:1px solid #ffffff24;padding:20px 0 0}.report-free-note{margin:0 12px 12px}.report-toolbar>div:last-child{flex-wrap:wrap}}
+@media print{
+ .free-preview-watermark{display:block!important;position:fixed;top:46%;left:7%;right:7%;z-index:999;transform:rotate(-28deg);text-align:center;font-size:62px;font-weight:900;letter-spacing:.08em;color:#0b29450d;pointer-events:none}
+ .report-paper{overflow:visible}
+}
