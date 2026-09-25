@@ -201,3 +201,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .payment-reference-box button{flex:none;border:1px solid #bcd8cf;background:#fff;color:#087b6d;border-radius:7px;padding:8px 10px;font-size:9px;font-weight:900;cursor:pointer}
 @media(max-width:760px){.checkout-trust{grid-template-columns:1fr}.checkout-flow i{display:none}}
 @media(max-width:560px){.checkout-flow{display:grid;grid-template-columns:1fr}.checkout-flow>div{width:100%}.payment-reference-box{align-items:flex-start;flex-direction:column}.payment-reference-box button{width:100%}}
+
+
+/* Site-wide quality pass */
+.not-found-page{min-height:62vh;display:grid;place-items:center;padding:70px 24px;background:linear-gradient(180deg,#f6f9fc,#fff)}
+.not-found-page>section{width:min(760px,100%);text-align:center;padding:52px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 24px 60px #173b5b0d}
+.not-found-page h1{font-size:44px;letter-spacing:-.04em;margin:12px 0}
+.not-found-page p{max-width:590px;margin:0 auto;color:var(--muted);font-size:14px;line-height:1.7}
+.not-found-page>section>div{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}
+.secondary-404{padding:14px 18px;border:1px solid #c7d6e3;border-radius:8px;color:var(--blue);font-size:13px;font-weight:800}
+@media(max-width:560px){.not-found-page>section{padding:38px 22px}.not-found-page h1{font-size:35px}.not-found-page>section>div{display:grid}.secondary-404,.not-found-page .primary-btn{width:100%}}
