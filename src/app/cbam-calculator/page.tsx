@@ -43,7 +43,9 @@ function CalculatorContent() {
     return {gross,free,adjusted,credit,cost,cert};
   },[quantity,emission,price,benchmark,factor,paid]);
 
-  const hasPrice=Number(price)>0;\n\n  const reportHref="/report?"+new URLSearchParams({
+  const hasPrice=Number(price)>0;
+
+  const reportHref="/report?"+new URLSearchParams({
     sector,code,country,quantity,emission,price,benchmark,factor,paid,
     gross:String(result.gross),free:String(result.free),adjusted:String(result.adjusted),
     credit:String(result.credit),cert:String(result.cert),cost:String(result.cost),
