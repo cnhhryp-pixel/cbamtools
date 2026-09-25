@@ -7,9 +7,11 @@ import ProfessionalReportCTA from "../components/ProfessionalReportCTA";
 import HomeFAQ from "../components/HomeFAQ";
 import CBAMCTA from "../components/CBAMCTA";
 import SiteFooter from "../components/SiteFooter";
+import OrganizationSchema from "../components/OrganizationSchema";
 
 export default function Home(){
   return <main>
+    <OrganizationSchema/>
     <HomeHero/>
     <ToolCards/>
     <IndustriesSection/>
