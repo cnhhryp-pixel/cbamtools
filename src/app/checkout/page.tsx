@@ -34,7 +34,7 @@ export default function CheckoutPage(){
       <section className="checkout-trust">
         <div><small>PRICE</small><b>$9.90 one-time</b><span>No subscription is created by CBAMTools.</span></div>
         <div><small>PAYMENT</small><b>Completed on PayPal</b><span>Your PayPal login stays on PayPal.</span></div>
-        <div><small>DELIVERY</small><b>Payment verification required</b><span>Send the transaction ID to match the report request.</span></div>
+        <div><small>DELIVERY</small><b>Payment verification required</b><span>Send the transaction ID to sales@cbamtools.com to match the report request.</span></div>
       </section>
 
       <section className="checkout-help">
