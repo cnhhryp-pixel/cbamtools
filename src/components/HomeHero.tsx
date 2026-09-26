@@ -23,6 +23,7 @@ export default function HomeHero(){
         </div>
       </details>
     </header>
+
     <section className="hero home-hero-v3">
       <div className="hero-glow"></div>
       <div className="hero-inner">
@@ -33,8 +34,13 @@ export default function HomeHero(){
           <a className="primary-btn" href="/hs-code-checker">Check product coverage <span>→</span></a>
           <a className="secondary-btn" href="/cbam-calculator">Open cost calculator</a>
         </div>
-        <div className="hero-proof"><span><b>01</b> Check CN / HS code</span><i>→</i><span><b>02</b> Calculate exposure</span><i>→</i><span><b>03</b> Generate report</span></div>
+        <div className="hero-proof">
+          <span><b>01</b> Check CN / HS code</span><i>→</i>
+          <span><b>02</b> Calculate exposure</span><i>→</i>
+          <span><b>03</b> Generate report</span>
+        </div>
       </div>
+
       <div className="hero-panel workflow-panel">
         <div className="panel-top"><span>ASSESSMENT WORKFLOW</span><span className="live-dot"><i></i> READY</span></div>
         <div className="workflow-step"><span>01</span><div><small>CLASSIFY</small><b>Check CN / HS code</b></div><em>→</em></div>
@@ -44,6 +50,16 @@ export default function HomeHero(){
         <a href="/hs-code-checker">Start a CBAM assessment →</a>
       </div>
     </section>
-    <div className="home-strip"><span>Built for</span><b>EU Importers</b><i>•</i><b>Exporters</b><i>•</i><b>Manufacturers</b><i>•</i><b>Supply Chain Teams</b></div>
+
+    <section className="home-capability-strip" aria-label="CBAMTools workflow">
+      <div className="capability-intro">
+        <span>ONE PRACTICAL WORKFLOW</span>
+        <b>Move from product screening to a documented assessment.</b>
+      </div>
+      <a href="/hs-code-checker"><small>01</small><b>Screen coverage</b><span>Check the CN / HS code first.</span></a>
+      <a href="/cbam-calculator"><small>02</small><b>Model exposure</b><span>Review emissions, quantity and price inputs.</span></a>
+      <a href="/cbam-assessment-report"><small>03</small><b>Document assumptions</b><span>Carry inputs into a structured report preview.</span></a>
+      <a href="/pricing"><small>04</small><b>Upgrade when needed</b><span>Professional PDF report available for €49.</span></a>
+    </section>
   </>;
 }

@@ -256,3 +256,159 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .auto-paypal-btn.is-disabled{opacity:.48;cursor:not-allowed;filter:grayscale(.2)}
 .copy-verification-btn{width:100%;margin-top:9px;padding:10px 12px;border:1px solid #cbd8e4;border-radius:8px;background:#fff;color:var(--blue);font-size:9px;font-weight:900;cursor:pointer}
 .copy-verification-btn:hover{background:#f5f9fd}
+
+
+/* Readability and homepage visual-density pass */
+html{font-size:16px}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.site-header,.inner-header{max-width:1260px;height:80px;padding-left:28px;padding-right:28px}
+.site-header nav,.inner-header nav{gap:28px;font-size:15px}
+.header-cta{font-size:14px;padding:11px 16px}
+.brand{font-size:22px}
+.brand-mark{width:36px;height:36px}
+
+.home-hero-v3{min-height:650px;grid-template-columns:minmax(0,1.15fr) minmax(380px,.85fr);gap:64px;padding-left:max(28px,calc((100vw - 1260px)/2));padding-right:max(28px,calc((100vw - 1260px)/2))}
+.home-hero-v3 .hero-inner{max-width:760px}
+.home-hero-v3 h1{font-size:70px;line-height:1.01}
+.home-hero-v3 .hero-inner>p{font-size:20px;line-height:1.72;max-width:720px}
+.eyebrow,.kicker{font-size:13px}
+.primary-btn,.secondary-btn{padding:15px 21px;font-size:15px}
+.home-hero-v3 .hero-proof{font-size:14px;gap:14px}
+.home-hero-v3 .hero-proof b{font-size:11px}
+.workflow-panel{padding:32px}
+.panel-top{font-size:12px}
+.workflow-step{grid-template-columns:38px 1fr 20px;padding:20px 0}
+.workflow-step>span{width:34px;height:34px;font-size:10px}
+.workflow-step small{font-size:10px}
+.workflow-step b{font-size:14px;margin-top:4px}
+.workflow-panel .panel-result{padding:20px;margin-top:22px}
+.workflow-panel .panel-result small{font-size:10px}
+.workflow-panel .panel-result strong{font-size:16px}
+.workflow-panel .panel-result p{font-size:13px}
+.workflow-panel>a{font-size:14px}
+
+.home-capability-strip{max-width:1260px;margin:0 auto;padding:26px 28px 30px;display:grid;grid-template-columns:1.25fr repeat(4,1fr);gap:12px;border-bottom:1px solid var(--line)}
+.home-capability-strip>div,.home-capability-strip>a{min-height:118px;border:1px solid var(--line);border-radius:12px;padding:18px 19px;background:#fff}
+.capability-intro{background:linear-gradient(135deg,#f2f8ff,#effaf8)!important}
+.capability-intro span{display:block;font-size:10px;letter-spacing:.12em;font-weight:900;color:var(--blue)}
+.capability-intro b{display:block;margin-top:8px;font-size:16px;line-height:1.4}
+.home-capability-strip>a{transition:.2s}
+.home-capability-strip>a:hover{transform:translateY(-2px);border-color:#aac0d3;box-shadow:0 12px 30px #173b5b0c}
+.home-capability-strip small{display:block;color:var(--cyan);font-size:10px;font-weight:900}
+.home-capability-strip a b{display:block;margin:8px 0 5px;font-size:15px}
+.home-capability-strip a span{display:block;color:var(--muted);font-size:12px;line-height:1.55}
+
+.section{max-width:1260px;padding:96px 28px}
+.section h2,.report-band h2{font-size:40px;line-height:1.12}
+.section-heading{gap:56px;margin-bottom:38px}
+.section-heading>p{font-size:16px;max-width:470px}
+.tools-section{padding-top:88px}
+.tool-grid{grid-template-columns:repeat(3,1fr);gap:20px}
+.tool-card{min-height:270px;padding:32px}
+.tool-number{font-size:13px}
+.tool-card h3{font-size:24px;margin-top:32px}
+.tool-card p,.resource-grid p,.audience p{font-size:15px;line-height:1.7}
+.tool-card b,.resource-grid b{font-size:14px}
+.industry-section{padding-left:max(28px,calc((100vw - 1260px)/2));padding-right:max(28px,calc((100vw - 1260px)/2))}
+.industry-grid{gap:16px}
+.industry-grid>a{padding:28px}
+.industry-grid h3{font-size:20px}
+.industry-grid p{font-size:14px;line-height:1.55}
+.home-resource-grid{gap:16px}
+.resource-grid a{padding:28px}
+.resource-grid span{font-size:11px}
+.resource-grid h3{font-size:21px}
+.resource-more a{font-size:13px}
+.audience-grid h3{font-size:17px}
+.faq-list summary{font-size:16px;padding:24px 4px}
+.faq-list details p{font-size:15px;line-height:1.75}
+.section-link{font-size:14px}
+
+.report-band{max-width:1260px;padding:58px;margin-bottom:78px}
+.report-band p{font-size:15px;line-height:1.7}
+.report-features{font-size:13px;gap:18px}
+.report-price{min-width:220px}
+.report-price small{font-size:11px}
+.report-price strong{font-size:40px}
+.report-price a{font-size:14px;padding:12px 15px}
+.report-preview-link{font-size:12px!important}
+.final-cta{max-width:1260px;padding:62px!important}
+.final-cta h2{font-size:38px}
+.final-cta p{font-size:16px}
+.final-cta a{font-size:14px;padding:13px 18px}
+.site-footer{padding-left:max(28px,calc((100vw - 1260px)/2));padding-right:max(28px,calc((100vw - 1260px)/2))}
+.site-footer a{font-size:14px}
+.footer-brand p{font-size:14px}
+.disclaimer{font-size:12px}
+
+/* Inner-page readability */
+.content-hero-inner,.content-layout{max-width:1260px}
+.content-hero h1{font-size:50px}
+.content-hero p{font-size:18px}
+.article-body>p{font-size:16px}
+.info-grid p{font-size:14px}
+.steps span{font-size:15px}
+.related-links a{font-size:14px}
+.content-aside>a{font-size:14px}
+.aside-note p{font-size:12px}
+.code-sectors span{font-size:13px}
+.article-cta{max-width:1260px}
+.article-cta p{font-size:14px}
+.article-cta a{font-size:13px}
+
+/* Calculator, checkout and pricing readability */
+.field-grid label{font-size:13px}
+.field-grid input,.field-grid select{font-size:14px;padding:13px}
+.calc-section-title h2{font-size:22px}
+.calc-section-title p{font-size:13px}
+.calc-note p{font-size:12px}
+.result-panel>p{font-size:12px}
+.result-row{font-size:12px}
+.result-row.total{font-size:14px}
+.result-disclaimer{font-size:10px}
+.calc-price-helper,.calc-legal-helper{font-size:11px}
+.checkout-badge,.checkout-step{font-size:10px}
+.checkout-summary p{font-size:14px}
+.checkout-list li{font-size:13px}
+.checkout-muted{font-size:13px}
+.checkout-small{font-size:11px}
+.checkout-help b{font-size:13px}
+.checkout-help span{font-size:12px}
+.pricing-card p{font-size:14px}
+.pricing-card ul{font-size:13px}
+.pricing-card>a{font-size:12px}
+.pricing-note p{font-size:13px}
+.auto-paypal-btn,.confirm-payment-btn{font-size:13px;padding:14px 17px}
+.copy-verification-btn{font-size:11px}
+.checkout-requirement b{font-size:12px}
+.checkout-requirement span{font-size:11px}
+.checkout-requirement a{font-size:11px}
+.checkout-field-error,.checkout-flow-error{font-size:11px}
+
+@media(max-width:1050px){
+  .home-capability-strip{grid-template-columns:repeat(2,1fr)}
+  .capability-intro{grid-column:1/-1}
+  .home-hero-v3{grid-template-columns:1fr;gap:38px}
+  .workflow-panel{max-width:620px}
+}
+@media(max-width:850px){
+  .home-hero-v3 h1{font-size:52px}
+  .section{padding:78px 24px}
+  .tool-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  body{font-size:15px}
+  .home-hero-v3{padding-left:20px;padding-right:20px}
+  .home-hero-v3 h1{font-size:42px}
+  .home-hero-v3 .hero-inner>p{font-size:17px}
+  .home-capability-strip{grid-template-columns:1fr;padding:18px 20px 24px}
+  .capability-intro{grid-column:auto}
+  .home-capability-strip>div,.home-capability-strip>a{min-height:auto}
+  .section{padding:64px 20px}
+  .section h2,.report-band h2{font-size:31px}
+  .tool-grid{grid-template-columns:1fr}
+  .tool-card{padding:27px}
+  .report-band{padding:38px 26px}
+  .final-cta{padding:42px 24px!important}
+  .final-cta h2{font-size:30px}
+}
