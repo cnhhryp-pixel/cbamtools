@@ -2,6 +2,7 @@
 
 import { Suspense, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 
 const sectors = ["Iron & Steel","Aluminium","Cement","Fertilisers","Hydrogen","Electricity"];
@@ -9,11 +10,13 @@ const origins = ["China","India","Türkiye","United Kingdom","United States","So
 const fmt = new Intl.NumberFormat("en-IE",{maximumFractionDigits:2});
 
 export default function CBAMCalculator() {
-  return (
+  return <>
+    <SiteHeader/>
     <Suspense fallback={<main className="calc-page"><section className="calc-hero"><span className="kicker">CBAM CALCULATOR</span><h1>Preparing calculator…</h1></section></main>}>
       <CalculatorContent />
     </Suspense>
-  );
+    <SiteFooter/>
+  </>;
 }
 
 function CalculatorContent() {
@@ -59,14 +62,7 @@ function CalculatorContent() {
   }).toString();
 
   return (
-    <>
-      <header className="inner-header">
-        <a className="brand" href="/"><span className="brand-mark">C</span><span>CBAM<span className="brand-accent">Tools</span></span></a>
-        <nav><a href="/hs-code-checker">HS Code Checker</a><a href="/cbam-default-values">Default Values</a><a href="/cbam-guide">Guides</a></nav>
-        <a className="header-cta" href="/report">Assessment Report →</a>
-      </header>
-
-      <main className="calc-page">
+    <main className="calc-page">
         <section className="calc-hero">
           <div>
             <span className="kicker">EU CBAM CALCULATOR</span>
@@ -113,7 +109,7 @@ function CalculatorContent() {
               <div><small>REPORT IDENTITY</small><b>Prepare the assessment for a company or contact.</b><span>These fields are carried into the report preview and checkout.</span></div>
               <div className="calc-two">
                 <label>Company / organisation<input value={company} onChange={e=>setCompany(e.target.value)} placeholder="e.g. Example Imports Ltd."/></label>
-                <label>Contact email<input type="email" value={contact} onChange={e=>setContact(e.target.value)} placeholder="name@company.com"/></label>
+                <label>Report delivery email<input type="email" value={contact} onChange={e=>setContact(e.target.value)} placeholder="name@company.com"/></label>
               </div>
             </div>}
           </section>
@@ -130,8 +126,6 @@ function CalculatorContent() {
             <p className="result-disclaimer">Planning estimate only. Confirm classification, emissions method, applicable adjustments and certificate price before compliance use.</p>
           </aside>
         </div>
-      </main>
-      <SiteFooter/>
-    </>
+    </main>
   );
 }
