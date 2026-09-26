@@ -8,7 +8,7 @@ const SUPPORT_EMAIL="sales@cbamtools.com";
 const fmt=new Intl.NumberFormat("en-IE",{maximumFractionDigits:2});
 
 export default function PayPalCheckoutCard(){
-  const [copiedRef,setCopiedRef]=useState(false);
+  const [copiedRef,setCopiedRef]=useState(false);\n  const [copiedVerification,setCopiedVerification]=useState(false);\n  const [flowError,setFlowError]=useState("");
   const q=useSearchParams();
 
   const sector=q.get("sector")||"";
@@ -22,7 +22,7 @@ export default function PayPalCheckoutCard(){
   const [company,setCompany]=useState(q.get("company")||"");
   const [contact,setContact]=useState(q.get("contact")||"");
 
-  const hasAssessment=Boolean(sector||code||country||quantity||cost);
+  const hasAssessment=Boolean(sector||code||country||quantity||cost);\n  const hasFullAssessment=Boolean(reportRef&&sector&&code&&country&&quantity&&cost);\n  const hasValidContact=/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(contact.trim());\n  const canStartPayment=hasFullAssessment&&hasValidContact;
   const reportParams=new URLSearchParams(q.toString());
   if(company) reportParams.set("company",company); else reportParams.delete("company");
   if(contact) reportParams.set("contact",contact); else reportParams.delete("contact");
@@ -41,7 +41,7 @@ export default function PayPalCheckoutCard(){
     cost&&`Estimated CBAM cost: €${fmt.format(Number(cost)||0)}`
   ].filter(Boolean).join("\n");
 
-  const body=encodeURIComponent(`Hello CBAMTools,
+  const verificationText=`Hello CBAMTools,
 
 I paid ${PROFESSIONAL_REPORT_PRICE_LABEL} using the CBAMTools PayPal Payment Link.
 
@@ -55,7 +55,8 @@ Assessment details:
 ${summary}
 
 Please verify the payment and deliver the Professional Report.
-`);
+`;
+  const body=encodeURIComponent(verificationText);
 
   async function copyReference(){
     try{
@@ -65,6 +66,27 @@ Please verify the payment and deliver the Professional Report.
     }catch{
       setCopiedRef(false);
     }
+  }
+
+  async function copyVerification(){
+    try{
+      await navigator.clipboard.writeText(verificationText);
+      setCopiedVerification(true);
+      window.setTimeout(()=>setCopiedVerification(false),1800);
+    }catch{
+      setCopiedVerification(false);
+    }
+  }
+
+  function guardPayment(event:React.MouseEvent<HTMLAnchorElement>){
+    if(canStartPayment){
+      setFlowError("");
+      return;
+    }
+    event.preventDefault();
+    setFlowError(!hasFullAssessment
+      ?"Create the assessment report first so the €49 purchase can be matched to the correct report."
+      :"Enter a valid report delivery email before opening PayPal.");
   }
 
   return <section className="checkout-card">
@@ -99,14 +121,17 @@ Please verify the payment and deliver the Professional Report.
       <h3>Where should we send the Professional Report?</h3>
       <div className="checkout-buyer-fields">
         <label>Company / organisation<input value={company} onChange={e=>setCompany(e.target.value)} placeholder="Company name"/></label>
-        <label>Report delivery email<input type="email" value={contact} onChange={e=>setContact(e.target.value)} placeholder="name@company.com"/></label>
+        <label>Report delivery email<input type="email" value={contact} onChange={e=>{setContact(e.target.value);setFlowError("");}} placeholder="name@company.com"/></label>
       </div>
+      {!hasFullAssessment&&<div className="checkout-requirement"><b>Assessment required before payment</b><span>The Professional Report is generated from a completed CBAM assessment. Create the report preview first, then return to checkout.</span><a href="/cbam-calculator">Start CBAM calculation →</a></div>}
+      {contact&&!hasValidContact&&<div className="checkout-field-error">Enter a valid delivery email.</div>}
 
       <div className="checkout-divider"/>
       <span className="checkout-step">STEP 1</span>
       <h3>Pay {PROFESSIONAL_REPORT_PRICE_LABEL} on PayPal</h3>
       <p className="checkout-muted">Open the CBAMTools PayPal Payment Link in a new tab and complete the payment on PayPal.</p>
-      <a className="auto-paypal-btn" href={PAYPAL_PAYMENT_LINK} target="_blank" rel="noopener noreferrer">Pay {PROFESSIONAL_REPORT_PRICE_LABEL} with PayPal →</a>
+      <a className={"auto-paypal-btn"+(!canStartPayment?" is-disabled":"")} href={canStartPayment?PAYPAL_PAYMENT_LINK:"#"} target={canStartPayment?"_blank":undefined} rel={canStartPayment?"noopener noreferrer":undefined} aria-disabled={!canStartPayment} onClick={guardPayment}>Pay {PROFESSIONAL_REPORT_PRICE_LABEL} with PayPal →</a>
+      {flowError&&<div className="checkout-flow-error">{flowError}</div>}
 
       <div className="payment-reference-box">
         <div>
@@ -122,6 +147,7 @@ Please verify the payment and deliver the Professional Report.
       <h3>Already paid?</h3>
       <p className="checkout-muted">Send the PayPal transaction ID and payer email. The email is pre-filled with your report reference and delivery details.</p>
       <a className="confirm-payment-btn" href={`mailto:${SUPPORT_EMAIL}?subject=${subject}&body=${body}`}>I have paid — send verification details</a>
+      <button className="copy-verification-btn" type="button" onClick={copyVerification}>{copiedVerification?"Copied verification details":"Copy verification details"}</button>
       <p className="checkout-small">Never send a PayPal password or card details. Only the transaction ID and payer email are needed for verification.</p>
     </div>
   </section>;
