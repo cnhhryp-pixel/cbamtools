@@ -31,10 +31,10 @@ export default function Page(){
 
     <div className="callout">
       <b>Enterprise enquiries</b>
-      <p>For multi-product workflows, report requirements or commercial questions, email <a href="mailto:cnhhryp@gmail.com">cnhhryp@gmail.com</a>.</p>
+      <p>For multi-product workflows, report requirements or commercial questions, email <a href="mailto:sales@cbamtools.com">sales@cbamtools.com</a>.</p>
     </div>
 
-    <p><a className="section-link" href="mailto:cnhhryp@gmail.com?subject=CBAMTools%20Enterprise%20Enquiry">Contact enterprise support →</a></p>
+    <p><a className="section-link" href="mailto:sales@cbamtools.com?subject=CBAMTools%20Enterprise%20Enquiry">Contact enterprise support →</a></p>
     <p><a className="section-link" href="/pricing">View report pricing →</a></p>
   </ContentPage>;
 }
