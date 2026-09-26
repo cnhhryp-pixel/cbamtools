@@ -38,7 +38,7 @@ export default function CheckoutPage(){
       </section>
 
       <section className="checkout-help">
-        <div><b>Need help before paying?</b><span>Contact <a href="mailto:cnhhryp@gmail.com">cnhhryp@gmail.com</a></span></div>
+        <div><b>Need help before paying?</b><span>Contact <a href="mailto:sales@cbamtools.com">sales@cbamtools.com</a></span></div>
         <div><b>Purchase terms</b><span>Review the <a href="/refund-policy">refund policy</a> and <a href="/terms">terms of service</a>.</span></div>
       </section>
     </main>
