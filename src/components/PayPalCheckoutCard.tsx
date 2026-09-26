@@ -39,7 +39,7 @@ export default function PayPalCheckoutCard(){
     quantity&&`Quantity: ${quantity} tonnes`,
     cost&&`Estimated CBAM cost: €${fmt.format(Number(cost)||0)}`,
     company&&`Company: ${company}`,
-    contact&&`Contact: ${contact}`,
+    contact&&`Report delivery email: ${contact}`,
     `Payment reference: ${paymentRef}`
   ].filter(Boolean).join("\n");
 
@@ -50,13 +50,13 @@ I paid for the CBAM Professional Report.
 PayPal transaction ID:
 PayPal payer email:
 Company: ${company}
-Contact: ${contact}
+Report delivery email: ${contact}
 Payment reference: ${paymentRef}
 
 Assessment details:
 ${summary||"No calculator details attached."}
 
-Please verify the payment and provide professional report access.
+Please verify the payment and deliver the Professional Report to the email above.
 `);
 
   async function copyText(value:string,type:"email"|"ref"){
@@ -98,17 +98,18 @@ Please verify the payment and provide professional report access.
         <li>Structured CBAM assessment summary</li>
         <li>Product, CN / HS code and origin details</li>
         <li>Emissions and certificate-cost calculation</li>
-        <li>Assumptions and verification checklist</li>
+        <li>PDF delivered by email after payment verification</li>
       </ul>
     </div>
 
     <div className="checkout-pay">
-      <span className="checkout-step">REPORT DETAILS</span>
-      <h3>Who should the professional report be prepared for?</h3>
+      <span className="checkout-step">REPORT DELIVERY</span>
+      <h3>Where should we send the Professional Report?</h3>
       <div className="checkout-buyer-fields">
         <label>Company / organisation<input value={company} onChange={e=>setCompany(e.target.value)} placeholder="Company name"/></label>
-        <label>Contact email<input type="email" value={contact} onChange={e=>setContact(e.target.value)} placeholder="name@company.com"/></label>
+        <label>Report delivery email<input type="email" value={contact} onChange={e=>setContact(e.target.value)} placeholder="name@company.com"/></label>
       </div>
+      <p className="checkout-small">After verification, the completed PDF is sent to this email. If the file is too large, we send a private delivery link instead.</p>
 
       <div className="checkout-divider"/>
       <span className="checkout-step">STEP 1</span>
@@ -135,7 +136,7 @@ Please verify the payment and provide professional report access.
       <div className="checkout-divider"/>
       <span className="checkout-step">STEP 2</span>
       <h3>Confirm your transaction</h3>
-      <p className="checkout-muted">After payment, email the PayPal transaction ID so the purchase can be matched to this assessment.</p>
+      <p className="checkout-muted">After payment, email the PayPal transaction ID so the purchase can be matched to this assessment and delivery email.</p>
       <a className="confirm-payment-btn" href={`mailto:${SUPPORT_EMAIL}?subject=${subject}&body=${body}`}>Email payment confirmation</a>
       <p className="checkout-small">Automatic transaction verification is not enabled yet. Do not send passwords or card details by email. Only send the PayPal transaction ID and payer email.</p>
     </div>
