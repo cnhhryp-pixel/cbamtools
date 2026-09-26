@@ -418,3 +418,106 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,
 .checkout-email-help{display:block;margin-top:6px;color:#7b8b9a;font-size:11px;font-weight:500;line-height:1.45}
 .checkout-buyer-fields input[aria-invalid="true"]{border-color:#c7685f;background:#fffafa}
 .checkout-buyer-fields input[aria-invalid="true"]:focus{outline-color:#c7685f33}
+
+
+/* Site-wide small-text readability pass */
+.contact-card>span{font-size:11px}
+.contact-card p{font-size:14px;line-height:1.75}
+.contact-card a{font-size:13px}
+.contact-note p,.contact-checklist{font-size:14px}
+.contact-email-cta{font-size:13px}
+
+.advanced-toggle p{font-size:13px}
+.advanced-toggle button{font-size:12px}
+.source-status small{font-size:10px}
+.source-status span{font-size:12px}
+.default-sector-grid span{font-size:11px}
+.default-sector-grid p{font-size:12px}
+.lookup-context small{font-size:10px}
+.lookup-context span{font-size:12px}
+.lookup-context a{font-size:12px}
+.route-field{font-size:12px}
+.route-field>span{font-size:11px}
+.route-field input,.route-field select{font-size:13px}
+.dataset-health span{font-size:10px}
+.dataset-health b,.dataset-health em{font-size:11px}
+.verified-values b{font-size:13px}
+.verified-values span{font-size:12px}
+.verified-values small{font-size:11px}
+.use-default-value{font-size:11px}
+
+.code-db-search input,.code-db-search select{font-size:14px}
+.code-db-meta{font-size:13px}
+.code-db-head{font-size:10px}
+.code-db-row{font-size:12px}
+.code-db-row>b{font-size:14px}
+.code-db-empty p{font-size:13px}
+.data-model-strip small{font-size:10px}
+.data-model-strip b{font-size:13px}
+.data-model-strip>span{font-size:11px}
+
+.calc-step small{font-size:10px}
+.calc-form-card>label,.calc-two label,.advanced-box>label{font-size:13px}
+.calc-helper-link{font-size:12px}
+.source-switch button{font-size:13px}
+.calc-source-note b{font-size:13px}
+.calc-source-note span{font-size:12px}
+.calc-source-note a{font-size:12px}
+
+.checker-hero>small{font-size:12px}
+.checker-empty>span{font-size:12px}
+.checker-empty p{font-size:14px}
+.coverage-status small{font-size:10px}
+.coverage-status p{font-size:14px}
+.result-facts span{font-size:11px}
+.result-facts b{font-size:14px}
+.checker-calc{font-size:13px}
+.checker-side li b{font-size:13px}
+.checker-side li p{font-size:12px}
+.checker-side>a{font-size:13px}
+.checker-sectors a,.checker-sectors div>span{font-size:13px}
+
+.result-secondary{font-size:12px}
+.report-toolbar a,.report-toolbar button{font-size:13px}
+.report-label{font-size:10px}
+.report-meta small{font-size:10px}
+.report-meta b{font-size:13px}
+.report-number{font-size:11px}
+.report-section>div>p{font-size:14px}
+.report-highlight small{font-size:10px}
+.report-highlight span{font-size:12px}
+.report-table>div{font-size:13px}
+.report-table strong{font-size:14px}
+.report-checks li{font-size:13px}
+.report-disclaimer b{font-size:12px}
+.report-disclaimer p{font-size:11px;line-height:1.65}
+
+.report-free-note{font-size:12px}
+.report-upgrade-card p{font-size:14px}
+.report-upgrade-points{font-size:12px}
+.report-upgrade-card small{font-size:10px}
+.report-upgrade-card>div:last-child>a{font-size:12px}
+.report-upgrade-card .report-upgrade-email{font-size:11px!important}
+.result-upgrade-hint{font-size:11px}
+.checkout-assessment>small{font-size:10px}
+.checkout-assessment>div span{font-size:10px}
+.checkout-assessment>div b{font-size:13px}
+.checkout-assessment>a{font-size:11px}
+.report-details-toggle{font-size:12px}
+.report-details-box small{font-size:10px}
+.report-details-box b{font-size:13px}
+.report-details-box span{font-size:11px}
+.report-client-line span{font-size:10px}
+.report-client-line b{font-size:14px}
+.report-client-line small{font-size:11px}
+
+.primary-status-action,.secondary-status-action{font-size:12px}
+.payment-status-card p{font-size:14px}
+.policy-page p{font-size:15px}
+
+@media(max-width:560px){
+  .code-db-row{font-size:13px}
+  .report-table>div{font-size:12px}
+  .report-checks li{font-size:12px}
+  .contact-card p,.contact-note p,.contact-checklist{font-size:13px}
+}
