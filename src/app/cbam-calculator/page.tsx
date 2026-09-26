@@ -22,7 +22,7 @@ function CalculatorContent() {
   const [code,setCode] = useState(params.get("code") || "");
   const [country,setCountry] = useState(params.get("country") || "China");
   const [quantity,setQuantity] = useState("100");
-  const [emission,setEmission] = useState(params.get("emissions") || "2");
+  const [emission,setEmission] = useState(params.get("emissions") || "");
   const [source,setSource] = useState(params.get("emissionSource") || (params.get("emissions") ? "EU default value" : "Supplier / manual data"));
   const route=params.get("route")||params.get("productionRoute")||"";
   const datasetVersion=params.get("datasetVersion")||params.get("dataset")||"";
@@ -44,7 +44,9 @@ function CalculatorContent() {
     return {gross,free,adjusted,credit,cost,cert};
   },[quantity,emission,price,benchmark,factor,paid]);
 
+  const hasEmission=Number(emission)>0;
   const hasPrice=Number(price)>0;
+  const readyForReport=hasEmission&&hasPrice;
 
   const reportHref="/report?"+new URLSearchParams({
     sector,code,country,quantity,emission,price,benchmark,factor,paid,
@@ -87,7 +89,7 @@ function CalculatorContent() {
               <button className={source==="EU default value"?"active":""} onClick={()=>setSource("EU default value")} type="button">EU default value</button>
             </div>
             {source==="EU default value" && <div className="calc-source-note"><b>2026 Definitive Period</b><span>Use the Default Values tool to select a verified applicable row.</span><a href={"/cbam-default-values?sector="+encodeURIComponent(sector)+"&code="+encodeURIComponent(code)+"&country="+encodeURIComponent(country)}>Find verified default value →</a></div>}
-            <label>Embedded emissions (tCO₂e / tonne)<input value={emission} onChange={e=>setEmission(e.target.value)} inputMode="decimal"/></label>
+            <label id="emissions-input">Embedded emissions (tCO₂e / tonne)<input value={emission} onChange={e=>setEmission(e.target.value)} inputMode="decimal" placeholder="Enter supplier data or a verified applicable value"/></label>
 
             <div className="calc-step"><span>03</span><div><small>IMPORT CALCULATION</small><h2>Enter shipment assumptions.</h2></div></div>
             <div className="calc-two">
@@ -116,12 +118,12 @@ function CalculatorContent() {
 
           <aside className="result-panel calc-v2-result">
             <span className="result-status">LIVE PLANNING ESTIMATE</span>
-            <div className="big-result"><small>ESTIMATED CBAM COST</small><strong>{hasPrice?"€"+fmt.format(result.cost):"Enter price"}</strong><span>{hasPrice?source:"Add the applicable certificate price to complete the cost estimate"}</span></div>
+            <div className="big-result"><small>ESTIMATED CBAM COST</small><strong>{readyForReport?"€"+fmt.format(result.cost):!hasEmission?"Enter emissions":"Enter price"}</strong><span>{readyForReport?source:!hasEmission?"Add an emissions value before calculating":"Add the applicable certificate price to complete the estimate"}</span></div>
             <div className="result-context"><div><span>Sector</span><b>{sector}</b></div><div><span>CN / HS</span><b>{code||"—"}</b></div><div><span>Origin</span><b>{country}</b></div><div><span>Quantity</span><b>{fmt.format(Number(quantity)||0)} t</b></div></div>
             <div className="result-row"><span>Gross embedded emissions</span><b>{fmt.format(result.gross)} tCO₂e</b></div>
             <div className="result-row"><span>After adjustment</span><b>{fmt.format(result.adjusted)} tCO₂e</b></div>
-            <div className="result-row total"><span>Estimated certificates</span><b>{hasPrice?fmt.format(result.cert):"—"}</b></div>
-            <a className="result-report-btn" href={hasPrice?reportHref:"/cbam-certificate-price"}>{hasPrice?"Generate assessment report →":"Add certificate price first →"}</a>
+            <div className="result-row total"><span>Estimated certificates</span><b>{readyForReport?fmt.format(result.cert):"—"}</b></div>
+            <a className="result-report-btn" href={readyForReport?reportHref:!hasEmission?(source==="EU default value"?"/cbam-default-values":"#emissions-input"):"/cbam-certificate-price"}>{readyForReport?"Generate assessment report →":!hasEmission?"Add emissions first →":"Add certificate price first →"}</a>
             <span className="result-upgrade-hint">Free preview first · Professional report available for $9.90</span>
             <p className="result-disclaimer">Planning estimate only. Confirm classification, emissions method, applicable adjustments and certificate price before compliance use.</p>
           </aside>
