@@ -44,9 +44,10 @@ function CalculatorContent() {
     return {gross,free,adjusted,credit,cost,cert};
   },[quantity,emission,price,benchmark,factor,paid]);
 
+  const isElectricity=sector==="Electricity";
   const hasEmission=Number(emission)>0;
   const hasPrice=Number(price)>0;
-  const readyForReport=hasEmission&&hasPrice;
+  const readyForReport=hasEmission&&hasPrice&&!isElectricity;
 
   const reportHref="/report?"+new URLSearchParams({
     sector,code,country,quantity,emission,price,benchmark,factor,paid,
@@ -82,28 +83,29 @@ function CalculatorContent() {
             <label>CN / HS code<input value={code} onChange={e=>setCode(e.target.value.replace(/\D/g,""))} placeholder="e.g. 7208" inputMode="numeric"/></label>
             <a className="calc-helper-link" href="/hs-code-checker">Not sure? Check your HS/CN code →</a>
             <label>Country of origin<select value={country} onChange={e=>setCountry(e.target.value)}>{origins.map(x=><option key={x}>{x}</option>)}</select></label>
+            {isElectricity&&<div className="electricity-workflow-card"><small>SECTOR-SPECIFIC WORKFLOW</small><b>Electricity should not use the generic tonnes-based goods calculator.</b><p>Use the electricity guidance page to review the sector-specific emissions and calculation approach before modelling an electricity import.</p><a href="/cbam-electricity">Open electricity CBAM guidance →</a></div>}
 
             <div className="calc-step"><span>02</span><div><small>EMISSIONS DATA</small><h2>Choose the emissions source.</h2></div></div>
             <div className="source-switch">
-              <button className={source==="Supplier / manual data"?"active":""} onClick={()=>setSource("Supplier / manual data")} type="button">Supplier / manual data</button>
-              <button className={source==="EU default value"?"active":""} onClick={()=>setSource("EU default value")} type="button">EU default value</button>
+              <button disabled={isElectricity} className={source==="Supplier / manual data"?"active":""} onClick={()=>setSource("Supplier / manual data")} type="button">Supplier / manual data</button>
+              <button disabled={isElectricity} className={source==="EU default value"?"active":""} onClick={()=>setSource("EU default value")} type="button">EU default value</button>
             </div>
             {source==="EU default value" && <div className="calc-source-note"><b>2026 Definitive Period</b><span>Use the Default Values tool to select a verified applicable row.</span><a href={"/cbam-default-values?sector="+encodeURIComponent(sector)+"&code="+encodeURIComponent(code)+"&country="+encodeURIComponent(country)}>Find verified default value →</a></div>}
-            <label id="emissions-input">Embedded emissions (tCO₂e / tonne)<input value={emission} onChange={e=>setEmission(e.target.value)} inputMode="decimal" placeholder="Enter supplier data or a verified applicable value"/></label>
+            <label id="emissions-input">Embedded emissions (tCO₂e / tonne)<input disabled={isElectricity} value={emission} onChange={e=>setEmission(e.target.value)} inputMode="decimal" placeholder="Enter supplier data or a verified applicable value"/></label>
 
             <div className="calc-step"><span>03</span><div><small>IMPORT CALCULATION</small><h2>Enter shipment assumptions.</h2></div></div>
             <div className="calc-two">
-              <label>Import quantity (tonnes)<input value={quantity} onChange={e=>setQuantity(e.target.value)} inputMode="decimal"/></label>
-              <label>Certificate price (€ / tCO₂)<input value={price} onChange={e=>setPrice(e.target.value)} inputMode="decimal" placeholder="Enter the applicable published price"/><a className="calc-price-helper" href="/cbam-certificate-price">Check published CBAM certificate prices →</a></label>
+              <label>Import quantity (tonnes)<input disabled={isElectricity} value={quantity} onChange={e=>setQuantity(e.target.value)} inputMode="decimal"/></label>
+              <label>Certificate price (€ / tCO₂)<input disabled={isElectricity} value={price} onChange={e=>setPrice(e.target.value)} inputMode="decimal" placeholder="Enter the applicable published price"/><a className="calc-price-helper" href="/cbam-certificate-price">Check published CBAM certificate prices →</a></label>
             </div>
 
-            <button className="advanced-toggle" type="button" onClick={()=>setAdvanced(!advanced)}>{advanced?"Hide":"Show"} advanced assumptions</button>
-            {advanced && <div className="advanced-box">
+            {!isElectricity&&<button className="advanced-toggle" type="button" onClick={()=>setAdvanced(!advanced)}>{advanced?"Hide":"Show"} advanced assumptions</button>}
+            {advanced && !isElectricity && <div className="advanced-box">
               <div className="calc-two">
                 <label>Benchmark input<input value={benchmark} onChange={e=>setBenchmark(e.target.value)} inputMode="decimal"/></label>
-                <label>2026 CBAM factor (%)<input value={factor} onChange={e=>setFactor(e.target.value)} inputMode="decimal"/></label>
+                <label>2026 CBAM factor / free-allocation share (%)<input value={factor} onChange={e=>setFactor(e.target.value)} inputMode="decimal"/></label>
               </div>
-              <label>Carbon price already paid (€ / tCO₂)<input value={paid} onChange={e=>setPaid(e.target.value)} inputMode="decimal"/></label>
+              <label>Carbon price already paid (€ / tCO₂)<input value={paid} onChange={e=>setPaid(e.target.value)} inputMode="decimal"/></label><a className="calc-legal-helper" href="https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/cbam-legislation-and-guidance_en" target="_blank" rel="noopener noreferrer">Official EU guidance on the free-allocation adjustment →</a>
             </div>}
 
             <button className="report-details-toggle" type="button" onClick={()=>setReportDetails(!reportDetails)}>{reportDetails?"Hide":"Add"} report details (optional)</button>
@@ -117,13 +119,13 @@ function CalculatorContent() {
           </section>
 
           <aside className="result-panel calc-v2-result">
-            <span className="result-status">LIVE PLANNING ESTIMATE</span>
-            <div className="big-result"><small>ESTIMATED CBAM COST</small><strong>{readyForReport?"€"+fmt.format(result.cost):!hasEmission?"Enter emissions":"Enter price"}</strong><span>{readyForReport?source:!hasEmission?"Add an emissions value before calculating":"Add the applicable certificate price to complete the estimate"}</span></div>
-            <div className="result-context"><div><span>Sector</span><b>{sector}</b></div><div><span>CN / HS</span><b>{code||"—"}</b></div><div><span>Origin</span><b>{country}</b></div><div><span>Quantity</span><b>{fmt.format(Number(quantity)||0)} t</b></div></div>
-            <div className="result-row"><span>Gross embedded emissions</span><b>{fmt.format(result.gross)} tCO₂e</b></div>
-            <div className="result-row"><span>After adjustment</span><b>{fmt.format(result.adjusted)} tCO₂e</b></div>
+            <span className="result-status">{isElectricity?"SECTOR-SPECIFIC WORKFLOW":"LIVE PLANNING ESTIMATE"}</span>
+            <div className="big-result"><small>ESTIMATED CBAM COST</small><strong>{isElectricity?"Sector-specific":readyForReport?"€"+fmt.format(result.cost):!hasEmission?"Enter emissions":"Enter price"}</strong><span>{isElectricity?"Use the electricity-specific guidance instead of the generic goods model":readyForReport?source:!hasEmission?"Add an emissions value before calculating":"Add the applicable certificate price to complete the estimate"}</span></div>
+            <div className="result-context"><div><span>Sector</span><b>{sector}</b></div><div><span>CN / HS</span><b>{code||"—"}</b></div><div><span>Origin</span><b>{country}</b></div><div><span>Quantity</span><b>{isElectricity?"—":fmt.format(Number(quantity)||0)+" t"}</b></div></div>
+            <div className="result-row"><span>Gross embedded emissions</span><b>{isElectricity?"—":fmt.format(result.gross)+" tCO₂e"}</b></div>
+            <div className="result-row"><span>After adjustment</span><b>{isElectricity?"—":fmt.format(result.adjusted)+" tCO₂e"}</b></div>
             <div className="result-row total"><span>Estimated certificates</span><b>{readyForReport?fmt.format(result.cert):"—"}</b></div>
-            <a className="result-report-btn" href={readyForReport?reportHref:!hasEmission?(source==="EU default value"?"/cbam-default-values":"#emissions-input"):"/cbam-certificate-price"}>{readyForReport?"Generate assessment report →":!hasEmission?"Add emissions first →":"Add certificate price first →"}</a>
+            <a className="result-report-btn" href={isElectricity?"/cbam-electricity":readyForReport?reportHref:!hasEmission?(source==="EU default value"?"/cbam-default-values":"#emissions-input"):"/cbam-certificate-price"}>{isElectricity?"Open electricity guidance →":readyForReport?"Generate assessment report →":!hasEmission?"Add emissions first →":"Add certificate price first →"}</a>
             <span className="result-upgrade-hint">Free preview first · Professional report available for $9.90</span>
             <p className="result-disclaimer">Planning estimate only. Confirm classification, emissions method, applicable adjustments and certificate price before compliance use.</p>
           </aside>

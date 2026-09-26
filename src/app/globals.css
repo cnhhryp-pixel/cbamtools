@@ -227,3 +227,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .mobile-menu a:hover{background:#f4f8fb;color:var(--blue)}
 @media(max-width:850px){.mobile-menu{display:block}.inner-header .header-cta,.home-nav .header-cta{display:none}}
 @media(max-width:560px){.mobile-menu summary{padding:8px 10px}}
+
+
+/* Sector-specific calculator safeguards */
+.electricity-workflow-card{margin:14px 0 4px;padding:18px;border:1px solid #d9c9a3;border-radius:11px;background:#fffaf0}
+.electricity-workflow-card small{display:block;color:#9b6a16;font-size:8px;font-weight:900;letter-spacing:.1em}
+.electricity-workflow-card b{display:block;margin:6px 0;font-size:13px;color:#593d13}
+.electricity-workflow-card p{margin:0 0 10px;color:#745d37;font-size:10px;line-height:1.6}
+.electricity-workflow-card a,.calc-legal-helper{color:var(--blue);font-size:9px;font-weight:900}
+.calc-legal-helper{display:block;margin-top:10px}
+.calc-form-card input:disabled,.calc-form-card select:disabled,.source-switch button:disabled{cursor:not-allowed;opacity:.55;background:#f2f5f7}
