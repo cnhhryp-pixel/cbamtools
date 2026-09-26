@@ -12,11 +12,13 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,6 +32,8 @@ jobs:
         run: npm install
       - name: Build static site
         run: npm run build
+      - name: Check internal links
+        run: npm run check:links
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
