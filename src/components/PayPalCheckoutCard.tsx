@@ -11,6 +11,7 @@ export default function PayPalCheckoutCard(){
   const [copiedRef,setCopiedRef]=useState(false);
   const [copiedVerification,setCopiedVerification]=useState(false);
   const [flowError,setFlowError]=useState("");
+  const [emailTouched,setEmailTouched]=useState(false);
   const q=useSearchParams();
 
   const sector=q.get("sector")||"";
@@ -26,7 +27,9 @@ export default function PayPalCheckoutCard(){
 
   const hasAssessment=Boolean(sector||code||country||quantity||cost);
   const hasFullAssessment=Boolean(reportRef&&sector&&code&&country&&quantity&&cost);
-  const hasValidContact=/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(contact.trim());
+  const normalizedContact=contact.trim();
+  const hasValidContact=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedContact);
+  const emailError=!normalizedContact?"Enter the report delivery email.":!hasValidContact?"Check the email format, for example name@company.com.":"";
   const canStartPayment=hasFullAssessment&&hasValidContact;
   const reportParams=new URLSearchParams(q.toString());
   if(company) reportParams.set("company",company); else reportParams.delete("company");
@@ -89,9 +92,10 @@ Please verify the payment and deliver the Professional Report.
       return;
     }
     event.preventDefault();
+    setEmailTouched(true);
     setFlowError(!hasFullAssessment
       ?"Create the assessment report first so the €49 purchase can be matched to the correct report."
-      :"Enter a valid report delivery email before opening PayPal.");
+      :emailError);
   }
 
   return <section className="checkout-card">
@@ -126,10 +130,10 @@ Please verify the payment and deliver the Professional Report.
       <h3>Where should we send the Professional Report?</h3>
       <div className="checkout-buyer-fields">
         <label>Company / organisation<input value={company} onChange={e=>setCompany(e.target.value)} placeholder="Company name"/></label>
-        <label>Report delivery email<input type="email" value={contact} onChange={e=>{setContact(e.target.value);setFlowError("");}} placeholder="name@company.com"/></label>
+        <label>Report delivery email<input type="email" inputMode="email" autoComplete="email" spellCheck={false} value={contact} onChange={e=>{setContact(e.target.value);setFlowError("");}} onBlur={()=>{setEmailTouched(true);setContact(contact.trim());}} aria-invalid={emailTouched&&!hasValidContact} placeholder="name@company.com"/><small className="checkout-email-help">Used to deliver the verified Professional Report.</small></label>
       </div>
       {!hasFullAssessment&&<div className="checkout-requirement"><b>Assessment required before payment</b><span>The Professional Report is generated from a completed CBAM assessment. Create the report preview first, then return to checkout.</span><a href="/cbam-calculator">Start CBAM calculation →</a></div>}
-      {contact&&!hasValidContact&&<div className="checkout-field-error">Enter a valid delivery email.</div>}
+      {emailTouched&&emailError&&<div className="checkout-field-error">{emailError}</div>}
 
       <div className="checkout-divider"/>
       <span className="checkout-step">STEP 1</span>
