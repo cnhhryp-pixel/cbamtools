@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "check:links": "node scripts/check-internal-links.mjs"
+    "check:links": "node scripts/check-internal-links.mjs",
+    "check:contacts": "node scripts/check-contact-emails.mjs"
   },
   "engines": {
     "node": ">=22"

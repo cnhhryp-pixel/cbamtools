@@ -34,6 +34,8 @@ jobs:
         run: npm run build
       - name: Check internal links
         run: npm run check:links
+      - name: Check contact emails
+        run: npm run check:contacts
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

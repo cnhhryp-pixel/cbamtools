@@ -31,5 +31,7 @@ jobs:
         run: npm run build
       - name: Check internal links
         run: npm run check:links
+      - name: Check contact emails
+        run: npm run check:contacts
       - name: Production dependency audit
         run: npm audit --omit=dev --audit-level=critical
