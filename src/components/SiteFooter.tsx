@@ -2,7 +2,7 @@ export default function SiteFooter(){return <footer className="site-footer">
   <div className="footer-brand">
     <b>CBAM<span>Tools</span></b>
     <p>Practical tools and reference material for EU CBAM preparation.</p>
-    <a className="footer-email" href="mailto:cnhhryp@gmail.com">cnhhryp@gmail.com</a>
+    <a className="footer-email" href="mailto:sales@cbamtools.com">sales@cbamtools.com</a>
   </div>
   <div>
     <b>Tools</b>
