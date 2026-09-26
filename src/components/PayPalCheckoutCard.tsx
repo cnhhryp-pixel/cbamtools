@@ -4,6 +4,7 @@ import {useState} from "react";
 import {useSearchParams} from "next/navigation";
 
 const PAYMENT_EMAIL="cnhhryp@gmail.com";
+const SUPPORT_EMAIL="sales@cbamtools.com";
 const PRICE="$9.90 USD";
 const PAYPAL_SEND_URL="https://www.paypal.com/myaccount/transfer/send";
 const fmt=new Intl.NumberFormat("en-IE",{maximumFractionDigits:2});
@@ -135,7 +136,7 @@ Please verify the payment and provide professional report access.
       <span className="checkout-step">STEP 2</span>
       <h3>Confirm your transaction</h3>
       <p className="checkout-muted">After payment, email the PayPal transaction ID so the purchase can be matched to this assessment.</p>
-      <a className="confirm-payment-btn" href={`mailto:${PAYMENT_EMAIL}?subject=${subject}&body=${body}`}>Email payment confirmation</a>
+      <a className="confirm-payment-btn" href={`mailto:${SUPPORT_EMAIL}?subject=${subject}&body=${body}`}>Email payment confirmation</a>
       <p className="checkout-small">Automatic transaction verification is not enabled yet. Do not send passwords or card details by email. Only send the PayPal transaction ID and payer email.</p>
     </div>
   </section>;
