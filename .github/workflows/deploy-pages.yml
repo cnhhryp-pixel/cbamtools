@@ -36,6 +36,8 @@ jobs:
         run: npm run check:links
       - name: Check contact emails
         run: npm run check:contacts
+      - name: Check commercial config
+        run: npm run check:commercial
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
