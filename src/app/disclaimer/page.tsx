@@ -20,7 +20,7 @@ export default function DisclaimerPage(){
 
     <div className="callout">
       <b>Need help with a report purchase?</b>
-      <p>Contact <a href="mailto:cnhhryp@gmail.com">cnhhryp@gmail.com</a> and include the report reference or PayPal transaction ID where relevant.</p>
+      <p>Contact <a href="mailto:sales@cbamtools.com">sales@cbamtools.com</a> and include the report reference or PayPal transaction ID where relevant.</p>
     </div>
 
     <p><a className="section-link" href="/cbam-calculator">Open calculator →</a></p>
