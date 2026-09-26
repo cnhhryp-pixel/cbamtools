@@ -17,15 +17,15 @@ export default function CheckoutPage(){
       <section className="checkout-hero">
         <span className="kicker">SECURE CHECKOUT</span>
         <h1>Upgrade your assessment to a professional report.</h1>
-        <p>Review the assessment, pay in PayPal, send the transaction ID for verification, then receive the completed report by email.</p>
+        <p>Review the assessment, pay with PayPal, return for automatic verification, then download the Professional PDF.</p>
         <div className="checkout-flow">
           <div><b>01</b><span>Review assessment</span></div>
           <i>→</i>
           <div><b>02</b><span>Pay in PayPal</span></div>
           <i>→</i>
-          <div><b>03</b><span>Send transaction ID</span></div>
+          <div><b>03</b><span>Automatic verification</span></div>
           <i>→</i>
-          <div><b>04</b><span>Receive PDF by email</span></div>
+          <div><b>04</b><span>Download PDF</span></div>
         </div>
       </section>
 
@@ -34,9 +34,9 @@ export default function CheckoutPage(){
       </Suspense>
 
       <section className="checkout-trust">
-        <div><small>PRICE</small><b>$9.90 one-time</b><span>No subscription is created by CBAMTools.</span></div>
+        <div><small>PRICE</small><b>€49 one-time</b><span>No subscription is created by CBAMTools.</span></div>
         <div><small>PAYMENT</small><b>Completed on PayPal</b><span>Your PayPal login stays on PayPal.</span></div>
-        <div><small>DELIVERY</small><b>PDF delivered by email</b><span>After payment verification, we send the completed report to the delivery email entered at checkout.</span></div>
+        <div><small>DELIVERY</small><b>Secure self-service download</b><span>After PayPal approval, CBAMTools verifies the completed order and unlocks the Professional PDF. Manual email verification remains available as a fallback.</span></div>
       </section>
 
       <section className="checkout-help">
