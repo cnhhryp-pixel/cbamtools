@@ -122,7 +122,7 @@ function CalculatorContent() {
             <div className="result-row"><span>After adjustment</span><b>{isElectricity?"—":fmt.format(result.adjusted)+" tCO₂e"}</b></div>
             <div className="result-row total"><span>Estimated certificates</span><b>{readyForReport?fmt.format(result.cert):"—"}</b></div>
             <a className="result-report-btn" href={isElectricity?"/cbam-electricity":readyForReport?reportHref:!hasEmission?(source==="EU default value"?"/cbam-default-values":"#emissions-input"):"/cbam-certificate-price"}>{isElectricity?"Open electricity guidance →":readyForReport?"Generate assessment report →":!hasEmission?"Add emissions first →":"Add certificate price first →"}</a>
-            <span className="result-upgrade-hint">Free preview first · Professional report available for $9.90</span>
+            <span className="result-upgrade-hint">Free preview first · Professional report available for €49</span>
             <p className="result-disclaimer">Planning estimate only. Confirm classification, emissions method, applicable adjustments and certificate price before compliance use.</p>
           </aside>
         </div>
