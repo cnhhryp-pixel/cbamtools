@@ -8,7 +8,9 @@ const SUPPORT_EMAIL="sales@cbamtools.com";
 const fmt=new Intl.NumberFormat("en-IE",{maximumFractionDigits:2});
 
 export default function PayPalCheckoutCard(){
-  const [copiedRef,setCopiedRef]=useState(false);\n  const [copiedVerification,setCopiedVerification]=useState(false);\n  const [flowError,setFlowError]=useState("");
+  const [copiedRef,setCopiedRef]=useState(false);
+  const [copiedVerification,setCopiedVerification]=useState(false);
+  const [flowError,setFlowError]=useState("");
   const q=useSearchParams();
 
   const sector=q.get("sector")||"";
@@ -22,7 +24,10 @@ export default function PayPalCheckoutCard(){
   const [company,setCompany]=useState(q.get("company")||"");
   const [contact,setContact]=useState(q.get("contact")||"");
 
-  const hasAssessment=Boolean(sector||code||country||quantity||cost);\n  const hasFullAssessment=Boolean(reportRef&&sector&&code&&country&&quantity&&cost);\n  const hasValidContact=/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(contact.trim());\n  const canStartPayment=hasFullAssessment&&hasValidContact;
+  const hasAssessment=Boolean(sector||code||country||quantity||cost);
+  const hasFullAssessment=Boolean(reportRef&&sector&&code&&country&&quantity&&cost);
+  const hasValidContact=/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(contact.trim());
+  const canStartPayment=hasFullAssessment&&hasValidContact;
   const reportParams=new URLSearchParams(q.toString());
   if(company) reportParams.set("company",company); else reportParams.delete("company");
   if(contact) reportParams.set("contact",contact); else reportParams.delete("contact");
