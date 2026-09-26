@@ -1,0 +1,7 @@
+name = "cbamtools-payment-api"
+main = "src/index.ts"
+compatibility_date = "2026-09-26"
+
+[vars]
+PAYPAL_MODE = "live"
+ALLOWED_ORIGIN = "https://cbamtools.com"
