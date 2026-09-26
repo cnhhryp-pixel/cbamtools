@@ -4,7 +4,7 @@ const resources = [
   ["GUIDE", "Importer Guide", "Organise product, supplier and emissions information before assessment.", "/cbam-for-importers", "Read importer guide"],
   ["CHECKLIST", "Compliance Checklist", "Work through classification, emissions, cost and documentation tasks.", "/cbam-compliance-checklist", "Open checklist"],
   ["DATA", "Supplier Emissions Data", "Build a more consistent request and review process for supplier information.", "/cbam-supplier-emission-data", "Review data needs"],
-  ["REPORT", "Assessment Report", "Turn calculator inputs into a structured planning record.", "/report", "Generate report"]
+  ["REPORT", "Assessment Report", "See how calculator inputs become a structured planning record.", "/cbam-assessment-report", "View report workflow"]
 ];
 
 export default function PopularResources() {
